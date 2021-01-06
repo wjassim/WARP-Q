@@ -24,6 +24,6 @@ Use of this source code is governed by a Apache v2.0 license that can be found i
 
 # Papers
 
-Design of the WARP_Q algorithm is described in detail in the follwing paper: 
+Design of the WARP-Q algorithm is described in detail in the follwing paper: 
 
 W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” 2020, paper submitted to the 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).
