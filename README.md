@@ -1,10 +1,11 @@
-# WARP-Q
+# WARP-Q Speech Quality Metric
 This code is to run the WARP-Q speech quality metric.
 
 https://github.com/WissamJassim/WARP-Q.git
 
-WARP-Q: Quality Prediction For Generative Neural Speech Codecs
+WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived audio quality. It uses a dynamic time warping measure of similarity between a reference and a test speech signal to produce a raw quality score.
 
+# Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
 
     - pandas 
@@ -16,3 +17,8 @@ Run using python 3.x and include these package dependencies in your virtual envi
     - skimage
     - speechpy
     - soundfile 
+
+
+# Papers
+
+W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” 2020, paper submitted to the 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).
