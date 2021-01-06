@@ -27,8 +27,8 @@ Input:
         - Codec: type of speech codec for the test speech (optinal, for plotting only)
     
 Output: 
-    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave, 
-    and the obtained results are stored in a new column in the same csv file.  
+    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave,
+    and will store the obrained results in a new column in the same csv file.  
     
         
 Releases: 
