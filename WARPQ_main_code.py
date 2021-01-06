@@ -1,6 +1,11 @@
-
 """
 WARP-Q: Quality Prediction For Generative Neural Speech Codecs
+
+This is the QARP-Q version used in the ICASSP 2021 Paper:
+
+W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction
+for generative neural speech codecs,” paper submitted to the 2021 IEEE 
+International Conference on Acoustics, Speech and Signal Processing (ICASSP).
 
 Run using python 3.x and include these package dependencies in your virtual environment:
     - pandas 
@@ -12,15 +17,34 @@ Run using python 3.x and include these package dependencies in your virtual envi
     - skimage
     - speechpy
     - soundfile 
+ 
+Input: 
+    - The main_test function calls a csv file that contains paths of audio files.  
+    - The csv file cosists of four columns: 
+        - Ref_Wave: reference speech
+        - Test_Wave: test speech
+        - MOS: subjective score (optinal, for plotting only)
+        - Codec: type of speech codec for the test speech (optinal, for plotting only)
+    
+Output: 
+    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave, 
+    and the obtained results are stored in a new column in the same csv file.  
+    
+        
+Releases: 
+    
+Warning: While this code has been tested and commented giving invalid input 
+files may cause unexpected results and will not be caught by robust exception
+handling or validation checking. It will just fail or give you the wrong answer.
 
-@author: Dr Wissam Jassim
-         University College Dublin
-         wissam.a.jassim@gmail.com
-         wissam.jassim@ucd.ie
-         November 28, 2020 
+    
+(c) Dr Wissam Jassim
+    University College Dublin
+    wissam.a.jassim@gmail.com
+    wissam.jassim@ucd.ie
+    November 28, 2020
 
 """
-
 
 # Load libraries
 import pandas as pd
@@ -38,8 +62,7 @@ import soundfile as sf
 ################################ WARP-Q #######################################
 def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=13,fmax=5000,patch_size=0.4,
                   sigma=np.array([[1,0],[0,3],[1,3]])):
-# def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=13,fmax=5000,patch_size=0.4,
-#                   sigma=np.array([[1, 1], [3, 2], [1, 3]])):   
+
     # Inputs:
     # refPath: path of reference speech
     # disPath: path pf degraded speech
@@ -114,15 +137,10 @@ def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=13,fmax=5000,patch_size=0.4
    
     # Compute MFCC features for the two signals
     
-    # mfcc_Ref = librosa.feature.mfcc(speech_Ref_vad,sr=sr,n_mfcc=n_mfcc,fmax=fmax,
-    #                                 n_fft=n_fft,win_length=win_length,hop_length=hop_length,lifter=lifter)
-    # mfcc_Coded = librosa.feature.mfcc(speech_Coded_vad,sr=sr,n_mfcc=n_mfcc,fmax=fmax,
-    #                                 n_fft=n_fft,win_length=win_length,hop_length=hop_length,lifter=lifter)
-    
-    mfcc_Ref = librosa.feature.melspectrogram(speech_Ref_vad,sr=sr,n_mels=n_mfcc,fmax=fmax,
-                                    n_fft=n_fft,win_length=win_length,hop_length=hop_length)
-    mfcc_Coded = librosa.feature.melspectrogram(speech_Coded_vad,sr=sr,n_mels=n_mfcc,fmax=fmax,
-                                    n_fft=n_fft,win_length=win_length,hop_length=hop_length)
+    mfcc_Ref = librosa.feature.mfcc(speech_Ref_vad,sr=sr,n_mfcc=n_mfcc,fmax=fmax,
+                                    n_fft=n_fft,win_length=win_length,hop_length=hop_length,lifter=lifter)
+    mfcc_Coded = librosa.feature.mfcc(speech_Coded_vad,sr=sr,n_mfcc=n_mfcc,fmax=fmax,
+                                    n_fft=n_fft,win_length=win_length,hop_length=hop_length,lifter=lifter)
     
     # Feature Normalisation using CMVNW method 
     mfcc_Ref = speechpy.processing.cmvnw(mfcc_Ref.T,win_size=201,variance_normalization=True).T
@@ -156,8 +174,6 @@ def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=13,fmax=5000,patch_size=0.4
     # Final score
     return np.median(Acc)
 
-
-
 ###############################################################################
 ############### #  Main Demo Test Function ####################################
 ###############################################################################
@@ -165,8 +181,10 @@ def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=13,fmax=5000,patch_size=0.4
 def main_test():
 
     # Load path of speech files stored in a csv file 
-    # The csv files cosists of four columns: Ref_Wave	Test_Wave 	MOS 	Codec   
-    All_Data = pd.read_csv('134369173_Wissam.csv',index_col=None)
+    # The csv file cosists of four columns: 
+    # Ref_Wave	Test_Wave 	MOS 	Codec  
+    
+    All_Data = pd.read_csv('audio_paths.csv',index_col=None)
     
     WARP_Q = [] # List to add WARP-Q scores
     # Run WARP-Q for each row
@@ -179,28 +197,9 @@ def main_test():
     
     # Add computed score to the same csv file
     All_Data['WARP-Q'] = WARP_Q
-    
-    
-    # Plot WARP-Q scores per condition as a function of codec type
-    dataX = All_Data.groupby('Codec').agg({'WARP-Q': 'mean','MOS':'mean'})
-    dataX = dataX.reset_index()
-    
-    # Compute Pearson correlation coefficient
-    pearson_coef, p_value = pearsonr(dataX['WARP-Q'], dataX.MOS)
-    Spearmanr_coef, pval_spearman = spearmanr(dataX['WARP-Q'], dataX.MOS)
-    
-    sns.lmplot(x="MOS", y='WARP-Q', fit_reg=False, hue='Codec',
-               data=dataX).fig.suptitle('Per-condition: Pearsonr= '+
-                                        str(round(pearson_coef,2))+', Spearman='+str(round(Spearmanr_coef,2)))
-    
-                        
-    pearson_coef, p_value = pearsonr(All_Data['WARP-Q'], All_Data.MOS)
-    Spearmanr_coef, pval_spearman = spearmanr(All_Data['WARP-Q'], All_Data.MOS)                                  
-    #plt.figure()           
-    sns.relplot(x="MOS", y="WARP-Q", hue="Codec",
-                palette="muted",data=All_Data).fig.suptitle('Per-sample: Pearsonr= '+
-                                        str(round(pearson_coef,2))+', Spearman='+str(round(Spearmanr_coef,2)))
-    
+    # Save the results
+    All_Data.to_csv('Results.csv',index = None)                                        
+
 
 if __name__ == '__main__':
     main_test()
