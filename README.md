@@ -3,7 +3,7 @@ This code is to run the WARP-Q speech quality metric.
 
 https://github.com/WissamJassim/WARP-Q.git
 
-WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived audio quality. It uses a dynamic time warping (DTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
+WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a dynamic time warping (DTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
 
 # Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
