@@ -18,7 +18,7 @@ Run using python 3.x and include these package dependencies in your virtual envi
     - speechpy
     - soundfile 
 
-# Run
+# Run WARPQ_main_code.py
 
 Input:
 
@@ -37,9 +37,7 @@ Input:
     
 Output: 
 
-    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave,
-    
-    and will store the obrained results in a new column in the same csv file.  
+    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. It will then store the obrained results in a new column in the same csv file.  
 
 
 # License
