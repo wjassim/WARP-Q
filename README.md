@@ -18,6 +18,30 @@ Run using python 3.x and include these package dependencies in your virtual envi
     - speechpy
     - soundfile 
 
+# Run
+
+Input:
+
+    - The main_test function calls a csv file that contains paths of audio files. 
+    
+    - The csv file cosists of four columns: 
+    
+        - Ref_Wave: reference speech
+        
+        - Test_Wave: test speech
+        
+        - MOS: subjective score (optinal, for plotting only)
+        
+        - Codec: type of speech codec for the test speech (optinal, for plotting only)
+        
+    
+Output: 
+
+    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave,
+    
+    and will store the obrained results in a new column in the same csv file.  
+
+
 # License
 
 Use of this source code is governed by a Apache v2.0 license that can be found in the LICENSE file.
