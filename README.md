@@ -22,21 +22,19 @@ Figure 1 shows illustrates a block diagram of the proposed algorithm. Futher det
 <p align="center">
     <img src="Resources/WARP_Q_metric.png" width="700">
 </p>
-<p align="center">
+<p align="left">
     Figure 1: Blockgiagram of WARP-Q metric
 </p>
 
-In this study, we propose \NEWMODEL{}, based on dynamic time warping (DTW), calculating an optimal match between two given sequences. DTW has been successfully adopted for a range of speech processing applications. In~\cite{Kraljevski2008PerceivedSQ}, the \textit{global} alignment distance based on the \textit{original} DTW is employed for test and received speech comparison. It showed results comparable to that of the PESQ metric for perceived speech quality measurement in VoIP and global system for mobile communications (GSM) networks.  %The detailed procedure of how to compute the alignment cost for assessing quality of speech is explained in Subsection~\ref{subsequenceDTW}. 
-
-\NEWMODEL{} takes a different approach to traditional speech quality models handling time-alignment and signal similarity in a combined manner. We use a special type of DTW algorithm, known as \textit{subsequence} dynamic time warping (SDTW)~\cite{10.5555/2815664}, to measure the \textit{distance} between speech signals. Unlike the original DTW algorithm which aims to find an optimal global alignment between two given sequences, the SDTW finds a subsequence within the longer sequence that optimally fits the shorter sequence. It has been successfully employed in audio matching scenarios and content-based audio retrieval
+Figure 2 shows an example of how WARP-Q metic estimats the quality score between two signals.   
 
 
 <p align="center">
     <img src="Resources/subSeqDTW.png" >
 </p>
-
-SDTW-based accumulated cost and optimal path between two signals. (a) plots of a reference signal and its corresponding coded version from a WaveNet coder at 6 kb/s (obtained from the VAD stage), (b) normalised MFCC matrices of the two signals, (c) plots of SDTW-based accumulated alignment cost matrix $D_{(X,Y)}$ and its optimal path $P^\ast$ between the MFCC matrix $Y$ of the reference signal and a patch $X$ extracted from the MFCC matrix of the degraded signal. The optimal indices ($a^{\ast} \& b^{\ast}$) are also shown. $X$ corresponds to a short segment (2 s long) from the WaveNet signal (highlighted in green color). 
-
+<p align="left">
+Figure 2: SDTW-based accumulated cost and optimal path between two signals. (a) plots of a reference signal and its corresponding coded version from a WaveNet coder at 6 kb/s (obtained from the VAD stage), (b) normalised MFCC matrices of the two signals, (c) plots of SDTW-based accumulated alignment cost matrix $D_{(X,Y)}$ and its optimal path $P^\ast$ between the MFCC matrix $Y$ of the reference signal and a patch $X$ extracted from the MFCC matrix of the degraded signal. The optimal indices ($a^{\ast} \& b^{\ast}$) are also shown. $X$ corresponds to a short segment (2 s long) from the WaveNet signal (highlighted in green color). 
+</p>
 
 
 # Requirements
