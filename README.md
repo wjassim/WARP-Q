@@ -1,3 +1,10 @@
+<p align="center">
+    <img src="Resources/WARP_Q_metric.png" width="800">
+</p>
+
+
+
+Blockgiagram of WAAR-Q metric
 
 ![](Resources/subSeqDTW.png)
 
