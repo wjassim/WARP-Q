@@ -9,9 +9,7 @@ WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective,
 
 Speech coding has been shown to achieve good speech quality using either waveform matching or parametric reconstruction. For very low bit rate streams, recently developed generative speech models can reconstruct high quality wideband speech from the bit streams of standard parametric encoders at less than 3 kb/s. Generative codecs produce high quality speech based on synthesising speech from a DNN and the parametric input. 
 
-The problem is that the existing objective speech quality models (e.g., ViSQOL, POLQA) cannot be used to accurately evaluate the quality of coded speech from generative models as they penalise based on signal differences not apparent in subjective listening test results. Motivated by this observation, we propose the WARP-Q metric, which is robust to low perceptual signal changes introduced by low bit rate neural vocoders. An evaluation using waveform matching, parametric and generative neural vocoder based codecs as well as channel and environmental noise shows that WARP-Q has better correlation and codec quality ranking for novel codecs compared to traditional metrics as well as the versatility of capturing other types of degradations, such as additive noise and transmission channel degradations.
-
-Figure 1 shows illustrates a block diagram of the proposed algorithm. Futher details about each processing stage are avaible in [1].   
+The problem is that the existing objective speech quality models (e.g., ViSQOL, POLQA) cannot be used to accurately evaluate the quality of coded speech from generative models as they penalise based on signal differences not apparent in subjective listening test results. Motivated by this observation, we propose the WARP-Q metric, which is robust to low perceptual signal changes introduced by low bit rate neural vocoders. Figure 1 shows illustrates a block diagram of the proposed algorithm.    
 
 <p align="center">
     <img src="Resources/WARP_Q_metric.png" width="700">
@@ -27,8 +25,7 @@ The algorithm of WARP-Q metric consists of four processing stages:
 - Subsequence score aggregation: the final quality score is representd by a median value of all alighnmetn costs. 
 
 
-
-Figure 2 shows an example of how WARP-Q metic estimats the quality score between two signals.   
+Figure 2 shows an example of how WARP-Q metic estimats the quality score between two signals. Futher details about each processing stage are avaible in [1].   
 
 
 <p align="center">
@@ -38,6 +35,8 @@ Figure 2 shows an example of how WARP-Q metic estimats the quality score between
 Figure 2: SDTW-based accumulated cost and optimal path between two signals. (a) plots of a reference signal and its corresponding coded version from a WaveNet coder at 6 kb/s (obtained from the VAD stage), (b) normalised MFCC matrices of the two signals, (c) plots of SDTW-based accumulated alignment cost matrix $D_{(X,Y)}$ and its optimal path $P^\ast$ between the MFCC matrix $Y$ of the reference signal and a patch $X$ extracted from the MFCC matrix of the degraded signal. The optimal indices ($a^{\ast} \& b^{\ast}$) are also shown. $X$ corresponds to a short segment (2 s long) from the WaveNet signal (highlighted in green color). 
 </p>
 
+
+An evaluation using waveform matching, parametric and generative neural vocoder based codecs as well as channel and environmental noise shows that WARP-Q has better correlation and codec quality ranking for novel codecs compared to traditional metrics as well as the versatility of capturing other types of degradations, such as additive noise and transmission channel degradations.
 
 # Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
