@@ -1,3 +1,11 @@
+# WARP-Q Speech Quality Metric
+This code is to run the WARP-Q speech quality metric.
+
+https://github.com/WissamJassim/WARP-Q.git
+
+WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a dynamic time warping (DTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
+
+
 <p align="center">
     <img src="Resources/WARP_Q_metric.png" width="700">
 </p>
@@ -11,12 +19,6 @@
     SDTW-based accumulated cost and optimal path between two signals. (a) plots of a reference signal and its corresponding coded version from a WaveNet coder at 6 kb/s (obtained from the VAD stage), (b) normalised MFCC matrices of the two signals, (c) plots of SDTW-based accumulated alignment cost matrix D(X;Y ) and its optimal path $$P^*$$ between the MFCC matrix Y of the reference signal and a patch X extracted from the MFCC matrix of the degraded signal. The optimal indices $$(a^*\&b^*)$$ are also shown. X corresponds to a short segment (2 s long) from the WaveNet signal (highlighted in green color)
 </p>
 
-# WARP-Q Speech Quality Metric
-This code is to run the WARP-Q speech quality metric.
-
-https://github.com/WissamJassim/WARP-Q.git
-
-WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a dynamic time warping (DTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
 
 # Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
