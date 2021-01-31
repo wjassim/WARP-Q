@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="Resources/WARP_Q_metric.png" width="600" title="Optional title">
+    <img src="Resources/WARP_Q_metric.png" width="600" alt="hello!" title="adam solomon's hello">
 </p>
 <p align="center">
     Blockgiagram of WAAR-Q metric
