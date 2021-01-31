@@ -5,7 +5,6 @@ https://github.com/WissamJassim/WARP-Q.git
 
 WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a dynamic time warping (DTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
 
-
 <p align="center">
     <img src="Resources/WARP_Q_metric.png" width="700">
 </p>
