@@ -5,7 +5,7 @@
 Blockgiagram of WAAR-Q metric
 
 <p align="center">
-    ![](Resources/subSeqDTW.png)
+    <img src="Resources/subSeqDTW.png" >
 </p>
 
 # WARP-Q Speech Quality Metric
