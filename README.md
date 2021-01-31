@@ -1,9 +1,9 @@
 <p align="center">
     <img src="Resources/WARP_Q_metric.png" width="600">
-    
+</p>
+<p align="center">
     Blockgiagram of WAAR-Q metric
 </p>
-
 <p align="center">
     <img src="Resources/subSeqDTW.png" >
 </p>
