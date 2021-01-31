@@ -2,12 +2,11 @@
     <img src="Resources/WARP_Q_metric.png" width="800">
 </p>
 
-
-
 Blockgiagram of WAAR-Q metric
 
+<p align="center">
 ![](Resources/subSeqDTW.png)
-
+</p>
 
 # WARP-Q Speech Quality Metric
 This code is to run the WARP-Q speech quality metric.
