@@ -3,14 +3,34 @@ This code is to run the WARP-Q speech quality metric.
 
 https://github.com/WissamJassim/WARP-Q.git
 
-WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a dynamic time warping (DTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
+WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a subsequence dynamic time warping (SDTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
+
+# General Description
+
+Speech coding has been shown to achieve good speech quality using either waveform matching or parametric reconstruction. For very low bit rate streams, recently developed generative speech models can reconstruct high quality wideband speech from the bit streams of standard parametric encoders at less than 3 kb/s. Generative codecs produce high quality speech based on synthesising speech from a DNN and the parametric input. 
+
+The problem is that the existing objective speech quality models (e.g., ViSQOL, POLQA) cannot be used to accurately evaluate the quality of coded speech from generative models as they penalise based on signal differences not apparent in subjective listening test results. Motivated by this observation, we propose the WARP-Q metric, which is robust to low perceptual signal changes introduced by low bit rate neural vocoders. An evaluation using waveform matching, parametric and generative neural vocoder based codecs as well as channel and environmental noise shows that WARP-Q has better correlation and codec quality ranking for novel codecs compared to traditional metrics as well as the versatility of capturing other types of degradations, such as additive noise and transmission channel degradations.
+
+The algorithm of WARP-Q metric consists of four processing stages: 
+- Pre-processing: silent non-speech segments from reference and degraded signals are detected and removed using a voice activity detection (VAD) algorithm. 
+- Feature extraction: Mel frequency cepstral coefficients (MFCCs) representations of the reference and degraded signals are first generated. The obtained MFCCs representations are then normalised so that they have the same segmental statistics (zero mean and unit variance) using the cepstral mean and variance normalisation (CMVN)
+- Similarity comparison: WARP-Q uses the SDTW algorithm to estimate the similarity between the reference degraded signals in the MFCC domain. It first divides the normalised MFCCs of the degraded signal into a number, $L$, of patches. For each degraded patch $X$, the SDTW algorithm then computes the accumulated alignment cost between $X$ and the reference MFCC matrix $Y$. 
+- Subsequence score aggregation: the final quality score is representd by a median value of all alighnmetn costs. 
+
+Figure 1 shows illustrates a block diagram of the proposed algorithm. Futher details about each processing stage are avaible in [1].   
 
 <p align="center">
     <img src="Resources/WARP_Q_metric.png" width="700">
 </p>
 <p align="center">
-    Blockgiagram of WARP-Q metric
+    Figure 1: Blockgiagram of WARP-Q metric
 </p>
+
+In this study, we propose \NEWMODEL{}, based on dynamic time warping (DTW), calculating an optimal match between two given sequences. DTW has been successfully adopted for a range of speech processing applications. In~\cite{Kraljevski2008PerceivedSQ}, the \textit{global} alignment distance based on the \textit{original} DTW is employed for test and received speech comparison. It showed results comparable to that of the PESQ metric for perceived speech quality measurement in VoIP and global system for mobile communications (GSM) networks.  %The detailed procedure of how to compute the alignment cost for assessing quality of speech is explained in Subsection~\ref{subsequenceDTW}. 
+
+\NEWMODEL{} takes a different approach to traditional speech quality models handling time-alignment and signal similarity in a combined manner. We use a special type of DTW algorithm, known as \textit{subsequence} dynamic time warping (SDTW)~\cite{10.5555/2815664}, to measure the \textit{distance} between speech signals. Unlike the original DTW algorithm which aims to find an optimal global alignment between two given sequences, the SDTW finds a subsequence within the longer sequence that optimally fits the shorter sequence. It has been successfully employed in audio matching scenarios and content-based audio retrieval
+
+
 <p align="center">
     <img src="Resources/subSeqDTW.png" >
 </p>
@@ -62,4 +82,4 @@ Output:
 
 Design of the WARP-Q algorithm is described in detail in the following paper: 
 
-W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” 2020, paper accepted for presenatation at the 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2021). Date of acceptance: 30 Jan 2021
+[1] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” paper accepted for presenatation at the 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2021). Date of acceptance: 30 Jan 2021
