@@ -15,9 +15,9 @@ WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective,
 <p align="center">
     <img src="Resources/subSeqDTW.png" >
 </p>
-<p align="left">
-    SDTW-based accumulated cost and optimal path between two signals. (a) plots of a reference signal and its corresponding coded version from a WaveNet coder at 6 kb/s (obtained from the VAD stage), (b) normalised MFCC matrices of the two signals, (c) plots of SDTW-based accumulated alignment cost matrix $$D_{(X,Y)}$$ and its optimal path $$P^\ast$$ between the MFCC matrix $$Y$$ of the reference signal and a patch $$X$$ extracted from the MFCC matrix of the degraded signal. The optimal indices ($$a^{\ast} \& b^{\ast}$$) are also shown. $$X$$ corresponds to a short segment (2 s long) from the WaveNet signal (highlighted in green color). 
-</p>
+
+SDTW-based accumulated cost and optimal path between two signals. (a) plots of a reference signal and its corresponding coded version from a WaveNet coder at 6 kb/s (obtained from the VAD stage), (b) normalised MFCC matrices of the two signals, (c) plots of SDTW-based accumulated alignment cost matrix $D_{(X,Y)}$ and its optimal path $P^\ast$ between the MFCC matrix $Y$ of the reference signal and a patch $X$ extracted from the MFCC matrix of the degraded signal. The optimal indices ($a^{\ast} \& b^{\ast}$) are also shown. $X$ corresponds to a short segment (2 s long) from the WaveNet signal (highlighted in green color). 
+
 
 
 # Requirements
