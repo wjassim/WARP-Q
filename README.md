@@ -48,4 +48,4 @@ Output:
 
 Design of the WARP-Q algorithm is described in detail in the following paper: 
 
-W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” 2020, paper submitted to the 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP).
+W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” 2020, paper accepted for presenatation at the 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2021). Date of acceptance: 30 Jan 2021
