@@ -1,11 +1,14 @@
 <p align="center">
-    <img src="Resources/WARP_Q_metric.png" width="600" alt="hello!" title="adam solomon's hello">
+    <img src="Resources/WARP_Q_metric.png" width="600">
 </p>
 <p align="center">
-    Blockgiagram of WAAR-Q metric
+    Blockgiagram of WARP-Q metric
 </p>
 <p align="center">
     <img src="Resources/subSeqDTW.png" >
+</p>
+<p align="center">
+    SDTW-based accumulated cost and optimal path between two signals. (a) plots of a reference signal and its corresponding coded version from a WaveNet coder at 6 kb/s (obtained from the VAD stage), (b) normalised MFCC matrices of the two signals, (c) plots of SDTW-based accumulated alignment cost matrix D(X;Y ) and its optimal path P between the MFCC matrix Y of the reference signal and a patch X extracted from the MFCC matrix of the degraded signal. The optimal indices (a&b) are also shown. X corresponds to a short segment (2 s long) from the WaveNet signal (highlighted in green color)
 </p>
 
 # WARP-Q Speech Quality Metric
