@@ -3,7 +3,7 @@ This code is to run the WARP-Q speech quality metric.
 
 https://github.com/WissamJassim/WARP-Q.git
 
-WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a subsequence dynamic time warping (SDTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score.
+WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a subsequence dynamic time warping (SDTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score. It is designed to predict quality scores for speech signals processed by low bit rate speech coders. 
 
 # General Description
 
@@ -67,10 +67,6 @@ Output:
 
     - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. 
     It will then store the obrained results in a new column in the same csv file.  
-
-
-# License
-
 
 
 # Papers for citation
