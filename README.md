@@ -18,7 +18,7 @@ The problem is that the existing objective speech quality models (e.g., ViSQOL, 
 The algorithm of WARP-Q metric consists of four processing stages:  
 
 - Pre-processing: silent non-speech segments from reference and degraded signals are detected and removed using a voice activity detection (VAD) algorithm.  
-- Feature extraction: Mel frequency cepstral coefficients (MFCCs) representations of the reference and degraded signals are first generated. The obtained MFCCs representations are then normalised so that they have the same segmental statistics (zero mean and unit variance) using the cepstral mean and variance normalisation (CMVN) 
+- Feature extraction: Mel frequency cepstral coefficients (MFCCs) representations of the reference and degraded signals are first generated. The obtained MFCCs representations are then normalised so that they have the same segmental statistics (zero mean and unit variance) using the cepstral mean and variance normalisation (CMVN). 
 - Similarity comparison: WARP-Q uses the SDTW algorithm to estimate the similarity between the reference degraded signals in the MFCC domain. It first divides the normalised MFCCs of the degraded signal into a number, $L$, of patches. For each degraded patch $X$, the SDTW algorithm then computes the accumulated alignment cost between $X$ and the reference MFCC matrix $Y$. The computation of accumulated alignment cost is based on an accumulated alignment cost matrix $D_{(X,Y)}$ and its optimal path $P^\ast$ between $X$ and $Y$. Figure 2 shows an example of this stage. Further details are available in [1].    
 
 | ![subSeqDTW.png](Resources/subSeqDTW.png) | 
@@ -63,7 +63,8 @@ Input:
     
 Output: 
 
-    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. It will then store the obrained results in a new column in the same csv file.  
+    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. 
+    It will then store the obrained results in a new column in the same csv file.  
 
 
 # License
