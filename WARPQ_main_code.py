@@ -1,11 +1,11 @@
 """
 WARP-Q: Quality Prediction For Generative Neural Speech Codecs
 
-This is the QARP-Q version used in the ICASSP 2021 Paper:
+This is the WARP-Q version used in the ICASSP 2021 Paper:
 
 W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction
-for generative neural speech codecs,” paper submitted to the 2021 IEEE 
-International Conference on Acoustics, Speech and Signal Processing (ICASSP).
+for generative neural speech codecs,” paper accepted for presentation at the 2021 IEEE 
+International Conference on Acoustics, Speech and Signal Processing (ICASSP 2021). Date of acceptance: 30 Jan 2021.
 
 Run using python 3.x and include these package dependencies in your virtual environment:
     - pandas 
@@ -60,8 +60,8 @@ import soundfile as sf
 
 
 ################################ WARP-Q #######################################
-def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=13,fmax=5000,patch_size=0.4,
-                  sigma=np.array([[1,0],[0,3],[1,3]])):
+def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=12,fmax=5000,patch_size=0.4,
+                  sigma=np.array([[1,1],[3,2],[1,3]])):
 
     # Inputs:
     # refPath: path of reference speech
