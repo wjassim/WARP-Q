@@ -65,7 +65,7 @@ Input:
         
         - MOS: subjective score (optinal, for plotting only)
         
-        - Codec: type of speech codec for the test speech (optinal, for plotting only)
+        - Codec: type of speech codec (optinal, for plotting only)
         
     
 Output: 
