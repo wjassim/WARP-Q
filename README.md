@@ -53,7 +53,7 @@ Run using python 3.x and include these package dependencies in your virtual envi
     - multiprocessing (optional, for parallel computing mode only)
     - joblib (optional, for parallel computing mode only)
 
-# Run WARPQ_main_code.py
+# Run WARPQ_demo.py
 
 Input:
 
