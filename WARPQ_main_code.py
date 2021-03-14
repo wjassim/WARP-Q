@@ -2,21 +2,24 @@
 WARP-Q: Quality Prediction For Generative Neural Speech Codecs
 
 This is the WARP-Q version used in the ICASSP 2021 Paper:
-
+    
 W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction
 for generative neural speech codecs,” paper accepted for presentation at the 2021 IEEE 
-International Conference on Acoustics, Speech and Signal Processing (ICASSP 2021). Date of acceptance: 30 Jan 2021.
+International Conference on Acoustics, Speech and Signal Processing (ICASSP 2021). 
+Date of acceptance: 30 Jan 2021. Preprint: https://arxiv.org/pdf/2102.10449
 
 Run using python 3.x and include these package dependencies in your virtual environment:
     - pandas 
     - librosa
-    - seaborn 
     - numpy 
-    - scipy
     - pyvad
     - skimage
     - speechpy
-    - soundfile 
+    - soundfile
+    - scipy (optional)
+    - seaborn (optional, for plotting only)
+    - multiprocessing (optional, for parallel computing mode only)
+    - joblib (optional, for parallel computing mode only)
  
 Input: 
     - The main_test function calls a csv file that contains paths of audio files.  
@@ -37,6 +40,9 @@ Warning: While this code has been tested and commented giving invalid input
 files may cause unexpected results and will not be caught by robust exception
 handling or validation checking. It will just fail or give you the wrong answer.
 
+In this simple and basic demo, we compute WARP-Q scores for 8 speech samples only.
+More data should should be provided to have better score distributions.
+
     
 (c) Dr Wissam Jassim
     University College Dublin
@@ -51,13 +57,15 @@ import pandas as pd
 import librosa, librosa.core, librosa.display
 import seaborn as sns
 import numpy as np
-from scipy.stats import pearsonr
-from scipy.stats import spearmanr
 from pyvad import vad, trim, split
 from skimage.util.shape import view_as_windows
 import speechpy
 import soundfile as sf
-
+import multiprocessing
+from joblib import Parallel, delayed
+from scipy.stats import pearsonr
+from scipy.stats import spearmanr
+import matplotlib.pyplot as plt
 
 ################################ WARP-Q #######################################
 def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=12,fmax=5000,patch_size=0.4,
@@ -179,27 +187,63 @@ def compute_WAPRQ(ref_path,test_path,sr=16000,n_mfcc=12,fmax=5000,patch_size=0.4
 ###############################################################################
 
 def main_test():
-
+    
+    runSingleCore = True # Make it False if you want to run the code with multicores
+    
+    getPlot = False # Make it True if you want to plot the predicted scores vs MOS
+                    # if True, MOS and Codec type should be provided in the csv file
+                    
     # Load path of speech files stored in a csv file 
-    # The csv file cosists of four columns: 
-    # Ref_Wave	Test_Wave 	MOS 	Codec  
+    # The csv file cosists of four columns: Ref_Wave, Test_Wave, MOS, and Codec  
     
     All_Data = pd.read_csv('audio_paths.csv',index_col=None)
-    
     WARP_Q = [] # List to add WARP-Q scores
-    # Run WARP-Q for each row
-    for index, row in All_Data.iterrows():
-        score = compute_WAPRQ(ref_path=row['Ref_Wave'],test_path=row['Test_Wave'])
-        WARP_Q.append(score)
     
-        print(row['Test_Wave'])
+    if runSingleCore:
+        
+        # Iterative process
+        print('Run WARP-Q with single job computing mode.. \n')
+        print('Processed speech file:')
+        
+        for index, row in All_Data.iterrows():
+            score = compute_WAPRQ(ref_path=row['Ref_Wave'],test_path=row['Test_Wave'])
+            WARP_Q.append(score)
+            print(row['Test_Wave'])
     
-    
+    else:
+        
+        # Process-based parallelism
+        print('Run WARP-Q with multi jobs computing mode.. \n ')
+        num_cores = multiprocessing.cpu_count() # Check available cores
+        
+        Col1 = All_Data['Ref_Wave']
+        Col2 = All_Data['Test_Wave']
+        
+        WARP_Q = Parallel(n_jobs=num_cores, verbose=100)(delayed(
+                        compute_WAPRQ)(Col1[row],Col2[row]) for row in range(0, len(Col1)))
+        
     # Add computed score to the same csv file
     All_Data['WARP-Q'] = WARP_Q
+    #print(WARP_Q)
+    
     # Save the results
     All_Data.to_csv('Results.csv',index = None)                                        
 
-
+    if getPlot:
+        
+        # Compute per-sample Pearsonr and Spearmanr correlation coefficients
+        pearson_coef, p_value = pearsonr(All_Data['WARP-Q'], All_Data['MOS'])
+        Spearmanr_coef, p_spearman = spearmanr(All_Data['WARP-Q'], All_Data['MOS'])                                  
+        
+        #plt.figure()           
+        sns.relplot(x="MOS", y="WARP-Q", 
+                    hue="Codec", palette="muted",
+                    data=All_Data).fig.suptitle(
+                        'Per-sample Correlation: Pearsonr= '+ str(round(pearson_coef,2)) +
+                        ', Spearman='+str(round(Spearmanr_coef,2))
+                        )
+        #plt.tight_layout()
+        #plt.show()
+    
 if __name__ == '__main__':
     main_test()
