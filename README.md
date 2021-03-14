@@ -68,8 +68,7 @@ Input:
             
 Output: 
 
-    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. 
-    It will then store the obrained results in a new column in the same csv file.  
+    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. It will then store the obrained results in a new column in the same csv file.  
 
 
 # Papers for citation
