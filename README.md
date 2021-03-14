@@ -43,13 +43,15 @@ Run using python 3.x and include these package dependencies in your virtual envi
 
     - pandas 
     - librosa
-    - seaborn 
     - numpy 
-    - scipy
     - pyvad
     - skimage
     - speechpy
-    - soundfile 
+    - soundfile
+    - scipy (optional)
+    - seaborn (optional, for plotting only)
+    - multiprocessing (optional, for parallel computing mode only)
+    - joblib (optional, for parallel computing mode only)
 
 # Run WARPQ_main_code.py
 
@@ -60,14 +62,10 @@ Input:
     - The csv file cosists of four columns: 
     
         - Ref_Wave: reference speech
-        
         - Test_Wave: test speech
-        
         - MOS: subjective score (optinal, for plotting only)
-        
         - Codec: type of speech codec (optinal, for plotting only)
-        
-    
+            
 Output: 
 
     - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. 
