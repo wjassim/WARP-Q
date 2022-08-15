@@ -1,11 +1,32 @@
-# WARP-Q Speech Quality Metric
-This code is to run the WARP-Q speech quality metric.
 
+
+# Quality Prediction For Generative Neural Speech Codecs (WARP-Q)
+This code is to run the WARP-Q speech quality metric.
 https://github.com/WissamJassim/WARP-Q.git
 
-WARP-Q (Quality Prediction For Generative Neural Speech Codecs) is an objective, full-reference metric for perceived speech quality. It uses a subsequence dynamic time warping (SDTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score. It is designed to predict quality scores for speech signals processed by low bit rate speech coders. 
+WARP-Q is an objective, full-reference metric for perceived speech quality. It uses a subsequence dynamic time warping (SDTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score. It is designed to predict quality scores for speech signals processed by low bit rate speech coders. 
 
-# General Description
+
+
+- [News](#news)
+- [General Description](#general-description)
+- [Requirements](#requirements)
+- [Demo running](#demo-running)
+- [References](#references)
+
+
+
+
+
+
+## News
+- July 2022: A new manuscript entitled "Speech Quality Assessment with WARP-Q: From Similarity to Subsequence Dynamic Time Warp Cost" has been accepted for publication in IET Signal Processing. More details about this manuscript will be provided soon. 
+- Jan 2021: Publishing initial codes of WARP-Q
+
+
+
+
+## General Description
 
 Speech coding has been shown to achieve good speech quality using either waveform matching or parametric reconstruction. For very low bit rate streams, recently developed generative speech models can reconstruct high quality wideband speech from the bit streams of standard parametric encoders at less than 3 kb/s. Generative codecs produce high quality speech based on synthesising speech from a DNN and the parametric input. 
 
@@ -38,7 +59,7 @@ An evaluation using waveform matching, parametric and generative neural vocoder 
 The results show that although WARP-Q is a simple model building on well established speech signal processing features and algorithms it solves the unmet need of a speech quality model that can be applied to generative neural codecs.
 
 
-# Requirements
+## Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
 
     - pandas 
@@ -53,13 +74,15 @@ Run using python 3.x and include these package dependencies in your virtual envi
     - multiprocessing (optional, for parallel computing mode only)
     - joblib (optional, for parallel computing mode only)
 
-# Run WARPQ_demo.py
+## Demo running
+
+- Run WARPQ_demo.py
 
 Input:
 
     - The main_test function calls a csv file that contains paths of audio files. 
     
-    - The csv file cosists of four columns: 
+    - The csv file consists of four columns: 
     
         - Ref_Wave: reference speech
         - Test_Wave: test speech
@@ -69,10 +92,10 @@ Input:
 Output: 
 
     - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. 
-    - It will then store the obrained results in a new column in the same csv file.  
+    - It will then store the obtained results in a new column in the same csv file.  
 
 
-# Papers for citation
+## References
 
 Design of the WARP-Q algorithm is described in detail in the following paper: 
 
