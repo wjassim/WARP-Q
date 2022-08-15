@@ -21,7 +21,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 
 ## News
 - July 2022: A new manuscript entitled "Speech Quality Assessment with WARP-Q: From Similarity to Subsequence Dynamic Time Warp Cost" has been accepted for publication in IET Signal Processing. More details about this manuscript will be provided soon. 
-- Jan 2021: Publishing initial codes of WARP-Q
+- Jan 2021: Publishing initial codes of WARP-Q.
 
 
 
