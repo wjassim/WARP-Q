@@ -20,7 +20,8 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 
 
 ## News
-- July 2022: A new manuscript entitled "Speech Quality Assessment with WARP-Q: From Similarity to Subsequence Dynamic Time Warp Cost" has been accepted for publication in IET Signal Processing. More details about this manuscript will be provided soon. 
+- July 2022: A new manuscript entitled [“Speech quality assessmentwith WARP‐Q: From similarity to subsequence dynamic time warp cost”](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) has been accepted for publication in IET Signal Processing. In this paper, we present the detailed design of WARP-Q with a comprehensive evaluation and analysis of the model components, design decisions, and salience of parameters to the model's performance. The paper also presents a comprehensive set of benchmarks with standard and new datasets and benchmarks against other standard and state-of-the-art full reference speech quality metrics. Furthermore, we compared WARP-Q results to the results from two state-of-the-art reference free speech quality measures. We also explored the possibility of mapping raw WAPR-Q score onto target MOS using different machine learning (ML) models.
+
 - Jan 2021: Publishing initial codes of WARP-Q.
 
 
@@ -97,7 +98,10 @@ Output:
 
 ## References
 
-Design of the WARP-Q algorithm is described in detail in the following paper: 
+Design of the WARP-Q algorithm is described in detail in the following papers:
 
-[[1] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” paper accepted for presenatation at the 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2021). Date of acceptance: 30 Jan 2021](https://arxiv.org/pdf/2102.10449)
+
+[[1] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “Speech quality assessmentwith WARP‐Q: From similarity to subsequence dynamic time warp cost,” IET Signal Processing, 1– 21 (2022)](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151)
+
+[[2] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2021, pp. 401-405](https://arxiv.org/pdf/2102.10449)
 
