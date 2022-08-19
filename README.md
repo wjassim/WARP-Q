@@ -122,8 +122,6 @@ Please cite our papers if you find this repository useful:
       booktitle={ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
       title={Warp-Q: Quality Prediction for Generative Neural Speech Codecs}, 
       year={2021},
-      volume={},
-      number={},
       pages={401-405},
       doi={10.1109/ICASSP39728.2021.9414901}
      }
