@@ -12,7 +12,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 - [General Description](#general-description)
 - [Requirements](#requirements)
 - [Demo running](#demo-running)
-- [References](#references)
+- [Citing](#citing)
 
 
 
@@ -96,12 +96,37 @@ Output:
     - It will then store the obtained results in a new column in the same csv file.  
 
 
-## References
+## Citing
 
-Design of the WARP-Q algorithm is described in detail in the following papers:
-
+Please cite our papers if you find this repository useful:
 
 [[1] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “Speech quality assessmentwith WARP‐Q: From similarity to subsequence dynamic time warp cost,” IET Signal Processing, 1– 21 (2022)](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151)
 
+    @article{Wissam_IET_Signal_Process2022,
+      author = {Jassim, Wissam A. and Skoglund, Jan and Chinen, Michael and Hines, Andrew},
+      title = {Speech quality assessment with WARP-Q: From similarity to subsequence dynamic time warp cost},
+      journal = {IET Signal Processing},
+      volume = {n/a},
+      number = {n/a},
+      pages = {},
+      doi = {https://doi.org/10.1049/sil2.12151},
+      url = {https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/sil2.12151},
+      eprint = {https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/sil2.12151},
+     }
+
+
 [[2] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “WARP-Q: Quality prediction for generative neural speech codecs,” ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2021, pp. 401-405](https://arxiv.org/pdf/2102.10449)
+
+    @INPROCEEDINGS{Wissam_ICASSP2021,
+      author={Jassim, Wissam A. and Skoglund, Jan and Chinen, Michael and Hines, Andrew},
+      booktitle={ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
+      title={Warp-Q: Quality Prediction for Generative Neural Speech Codecs}, 
+      year={2021},
+      volume={},
+      number={},
+      pages={401-405},
+      doi={10.1109/ICASSP39728.2021.9414901}
+     }
+
+
 
