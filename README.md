@@ -83,7 +83,7 @@ The following figure compares the performance of the evaluated parameters. Pleas
 | Figure 3: (a)-(g) Pearson and Spearman correlation coefficients for evaluated factors using the Genspeech, TCD-VoIP, P.Sup23 EXP1, and P.Sup23 EXP3 databases, (h) Pearson correlation coefficient as a function of Spearman correlation coefficient for different parameter values across datasets. Lower correlation coefficients indicate better results. |
     
 ## Pre-trained Mapping Models   
-Pre-trained mapping models proposed in [2] will be provided soon. 
+Pre-trained models proposed in [2] to map raw WARP-Q scores onto MOS will be provided soon. 
 
 ## Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
