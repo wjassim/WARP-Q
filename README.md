@@ -11,6 +11,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 - [News](#news)
 - [General Description](#general-description)
 - [Model Design](#model-design)
+- [Pre-trained Mapping Models](#pre-trained-mapping-models)
 - [Requirements](#requirements)
 - [Demo running](#demo-running)
 - [Citing](#citing)
@@ -75,9 +76,14 @@ The evaluated parameters are:
   - Aggregate function for temporal pooling of costs
   - Effect of DTW step size, <img src="https://render.githubusercontent.com/render/math?math=\Sigma">
  
+The following figure compares the performance of the evaluated parameters. Please see section 4 of our new paper [2] for more details about this figure, score distributions, and summary of best results.  
+  
+| <img src="Resources/Model_Design.jpg" width="750"> | 
+|:--| 
+| Figure 3: (a)-(g) Pearson and Spearman correlation coefficients for evaluated factors using the Genspeech, TCD-VoIP, P.Sup23 EXP1, and P.Sup23 EXP3 databases, (h) Pearson correlation coefficient as a function of Spearman correlation coefficient for different parameter values across datasets. Lower correlation coefficients indicate better results. |
     
-    
-    
+## Pre-trained Mapping Models   
+Pre-trained mapping models proposed in [2] will be provided soon. 
 
 ## Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
