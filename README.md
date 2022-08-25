@@ -10,6 +10,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 
 - [News](#news)
 - [General Description](#general-description)
+- [Model Design](#model-design)
 - [Requirements](#requirements)
 - [Demo running](#demo-running)
 - [Citing](#citing)
@@ -41,7 +42,7 @@ The algorithm of WARP-Q metric consists of four processing stages:
 
 - Pre-processing: silent non-speech segments from reference and degraded signals are detected and removed using a voice activity detection (VAD) algorithm. 
 
-- Feature extraction: Mel frequency cepstral coefficients (MFCCs) representations of the reference and degraded signals are first generated. The obtained MFCCs representations are then normalised so that they have the same segmental statistics (zero mean and unit variance) using the cepstral mean and variance normalisation (CMVN). 
+- Feature extraction: <img src="https://render.githubusercontent.com/render/math?math=K"> cepstral coefficients of the reference and degraded signals are first generated. The obtained MFCCs representations are then normalised so that they have the same segmental statistics (zero mean and unit variance) using the cepstral mean and variance normalisation (CMVN). 
 
 - Similarity comparison: WARP-Q uses the SDTW algorithm to estimate the similarity between the reference degraded signals in the MFCC domain. It first divides the normalised MFCCs of the degraded signal into a number, <img src="https://render.githubusercontent.com/render/math?math=L">, of patches. For each degraded patch <img src="https://render.githubusercontent.com/render/math?math=X">, the SDTW algorithm then computes the accumulated alignment cost between <img src="https://render.githubusercontent.com/render/math?math=X"> and the reference MFCC matrix <img src="https://render.githubusercontent.com/render/math?math=Y">. The computation of accumulated alignment cost is based on an accumulated alignment cost matrix <img src="https://render.githubusercontent.com/render/math?math=D_{(X,Y)}"> and its optimal path <img src="https://render.githubusercontent.com/render/math?math=P^\ast"> between <img src="https://render.githubusercontent.com/render/math?math=X"> and <img src="https://render.githubusercontent.com/render/math?math=Y">. Figure 2 shows an example of this stage. Further details are available in [1].   
 
@@ -59,6 +60,24 @@ An evaluation using waveform matching, parametric and generative neural vocoder 
 
 The results show that although WARP-Q is a simple model building on well established speech signal processing features and algorithms it solves the unmet need of a speech quality model that can be applied to generative neural codecs.
 
+## Model Design
+
+Our previous work [1] introduced the WARP-Q metric evaluating the performance for the chosen design parameters without evaluating or analysing their influence. In our new paper [2], we establish the sensitivity and importance of model components and design choices to the overall metric performance. The purpose of the experiments presented in this Section was to establish a default set of parameters/settings for the proposed model. Furthermore, the experiments were conducted to find default WARP-Q settings that prioritise the Genspeech dataset but work as well as possible for other scenarios. 
+
+The evaluated parameters are: 
+
+  - Sampling frequency of input signals (8 kHz vs 16 kHz)
+  - Spectral features (MFCC vs Melspectrogram)
+  - Maximum frequency for spectral representation, (<img src="https://render.githubusercontent.com/render/math?math=f_{max}">=4, 5, 6, and 8 kHz)
+  - Number of MFCC coefficients (<img src="https://render.githubusercontent.com/render/math?math=K">=12,13,16, and 24 )
+  - Patch size for evaluation (0.2, 0.4, and 0.6 seconds)
+  - Effect of VAD algorithm on quality scores
+  - Aggregate function for temporal pooling of costs
+  - Effect of DTW step size, <img src="https://render.githubusercontent.com/render/math?math=\Sigma">
+ 
+    
+    
+    
 
 ## Requirements
 Run using python 3.x and include these package dependencies in your virtual environment:
