@@ -35,7 +35,7 @@ The problem is that the existing objective speech quality models (e.g., ViSQOL, 
 
 | <img src="Resources/WARP_Q_metric.png" width="700"> | 
 |:--| 
-| Figure 1: Blockgiagram of WARP-Q metric |
+| Figure 1: High‐level block diagram of the WARP‐Q metric |
 
 The algorithm of WARP-Q metric consists of four processing stages:  
 
