@@ -10,6 +10,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 
 - [News](#news)
 - [General Description](#general-description)
+- [Using WARP-Q](#using-warp-q)
 - [Model Design](#model-design)
 - [Pre-trained Mapping Models](#pre-trained-mapping-models)
 - [Requirements](#requirements)
@@ -61,6 +62,12 @@ The algorithm of WARP-Q metric consists of four processing stages:
 An evaluation using waveform matching, parametric and generative neural vocoder based codecs as well as channel and environmental noise shows that WARP-Q has better correlation and codec quality ranking for novel codecs compared to traditional metrics as well as the versatility of capturing other types of degradations, such as additive noise and transmission channel degradations. 
 
 The results show that although WARP-Q is a simple model building on well established speech signal processing features and algorithms it solves the unmet need of a speech quality model that can be applied to generative neural codecs.
+
+
+## Using WARP-Q
+
+
+
 
 ## Model Design
 
