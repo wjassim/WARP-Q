@@ -66,6 +66,8 @@ The results show that although WARP-Q is a simple model building on well establi
 
 ## Using WARP-Q
 
+### Installation
+
 To run the code, please implement the following steps:
 
 1. Clone this repository:
@@ -82,6 +84,37 @@ To run the code, please implement the following steps:
     cd path/of/clonned/warpq/repo
     pip install -r requirements.txt
     ```
+
+### Prediction
+There are two running modes available to predict the quality of speech via command line arguments:
+
+- predict_csv: predict quality scores of multi reference and degraded speech files listed in a csv file
+- predict_file: predict quality score between two speech file, reference and its degraded  
+
+To predict the quality of all .wav files listed in a csv table, run WARP-Q with predict_csv mode:
+ 
+```ruby
+python warpq.py --mode predict_csv --csv_input /path/to/input/csv/file.csv --csv_output /path/to/results/file.csv --mapping_model /path/to/mapping/model/file.zip
+```
+
+Example: 
+```ruby
+python warpq.py --mode predict_csv --csv_input ./audio_samples.csv --csv_output ./results.csv --mapping_model ./models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip
+```
+
+To predict the quality of two .wav files, run WARP-Q with predict_file mode:
+ 
+```ruby
+python warpq.py --mode predict_file --org /path/to/original/speech/file.wav --deg /path/to/degraded/speech/file.wav --mapping_model /path/to/mapping/model/file.zip
+```
+Example: 
+ 
+```ruby
+python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest_model/Genspeech.zip
+```
+    
+
+
 
 
 
