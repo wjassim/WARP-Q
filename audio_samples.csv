@@ -1,0 +1,9 @@
+Ref_Wave,Test_Wave,MOS,Codec
+audio/p239_021.wav,audio/p239_021_evs.wav,3.54,evs
+audio/p239_021.wav,audio/p239_021_flow_embedding.wav,3.51,flow_embedding
+audio/p239_021.wav,audio/p239_021_flow_mel.wav,3.96,flow_mel
+audio/p239_021.wav,audio/p239_021_lpcn.wav,3.28,lpcn
+audio/p239_021.wav,audio/p239_021_lpcnq.wav,2.84,lpcnq
+audio/p239_021.wav,audio/p239_021_lyra.wav,3.78,lyra
+audio/p239_021.wav,audio/p239_021_melgan.wav,3.84,melgan
+audio/p239_021.wav,audio/p239_021_opus.wav,2.36,opus
