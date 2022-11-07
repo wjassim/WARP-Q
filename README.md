@@ -12,9 +12,6 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 - [Overview](#overview)
 - [Using WARP-Q](#using-warp-q)
 - [Model Design](#model-design)
-- [Pre-trained Mapping Models](#pre-trained-mapping-models)
-- [Requirements](#requirements)
-- [Demo running](#demo-running)
 - [Citing](#citing)
 
 
@@ -113,7 +110,7 @@ Example:
 python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest_model/Genspeech.zip
 ```
     
-
+The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. As proposed in [2], there are different models available. More details about these models will be provided soon. 
 
 
 
@@ -140,44 +137,6 @@ The following figure compares the performance of the evaluated parameters. Pleas
 |:--| 
 | Figure 3: (a)-(g) Pearson and Spearman correlation coefficients for evaluated factors using the Genspeech, TCD-VoIP, P.Sup23 EXP1, and P.Sup23 EXP3 databases, (h) Pearson correlation coefficient as a function of Spearman correlation coefficient for different parameter values across datasets. Lower correlation coefficients indicate better results. |
     
-## Pre-trained Mapping Models   
-Pre-trained models proposed in [2] to map raw WARP-Q scores onto MOS will be provided soon. 
-
-## Requirements
-Run using python 3.x and include these package dependencies in your virtual environment:
-
-    - pandas 
-    - librosa
-    - numpy 
-    - pyvad
-    - skimage
-    - speechpy
-    - soundfile
-    - scipy (optional)
-    - seaborn (optional, for plotting only)
-    - multiprocessing (optional, for parallel computing mode only)
-    - joblib (optional, for parallel computing mode only)
-
-## Demo running
-
-- Run WARPQ_demo.py
-
-Input:
-
-    - The main_test function calls a csv file that contains paths of audio files. 
-    
-    - The csv file consists of four columns: 
-    
-        - Ref_Wave: reference speech
-        - Test_Wave: test speech
-        - MOS: subjective score (optinal, for plotting only)
-        - Codec: type of speech codec (optinal, for plotting only)
-            
-Output: 
-
-    - Code will compute the WARP-Q quality scores between Ref_Wave and Test_Wave. 
-    - It will then store the obtained results in a new column in the same csv file.  
-
 
 ## Citing
 
