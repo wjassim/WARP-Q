@@ -63,6 +63,8 @@ The results show that although WARP-Q is a simple model building on well establi
 
 ## Using WARP-Q
 
+Note: the main call (warpq.py) will be provided soon. 
+
 ### Installation
 
 To run the code, please implement the following steps:
@@ -111,8 +113,6 @@ python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p23
 ```
     
 The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. As proposed in [2], there are different models available. More details about these models will be provided soon. 
-
-
 
 
 
