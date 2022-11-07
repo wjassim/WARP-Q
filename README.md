@@ -63,8 +63,6 @@ The results show that although WARP-Q is a simple model building on well establi
 
 ## Using WARP-Q
 
-Note: the main call (warpq.py) will be provided soon. 
-
 ### Installation
 
 To run the code, please implement the following steps:
