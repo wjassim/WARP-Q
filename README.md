@@ -9,7 +9,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 
 
 - [News](#news)
-- [General Description](#general-description)
+- [Overview](#overview)
 - [Using WARP-Q](#using-warp-q)
 - [Model Design](#model-design)
 - [Pre-trained Mapping Models](#pre-trained-mapping-models)
@@ -31,7 +31,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 
 
 
-## General Description
+## Overview
 
 Speech coding has been shown to achieve good speech quality using either waveform matching or parametric reconstruction. For very low bit rate streams, recently developed generative speech models can reconstruct high quality wideband speech from the bit streams of standard parametric encoders at less than 3 kb/s. Generative codecs produce high quality speech based on synthesising speech from a DNN and the parametric input. 
 
@@ -65,6 +65,23 @@ The results show that although WARP-Q is a simple model building on well establi
 
 
 ## Using WARP-Q
+
+To run the code, please implement the following steps:
+
+1. Clone this repository:
+    ```ruby
+    git clone https://github.com/wjassim/WARP-Q.git
+    ```
+2. Create a new environment named warpq and then activate it: 
+    ```ruby
+    conda create --name warpq python=3.9
+    conda activate warpq
+    ```
+3. Change working directory to the path of warpq repo and then install the dependencies:
+    ```ruby
+    cd path/of/clonned/warpq/repo
+    pip install -r requirements.txt
+    ```
 
 
 
