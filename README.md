@@ -111,10 +111,10 @@ Example:
 python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest/Genspeech_TCDVoIP_PSup23.zip
 ```
     
-The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. <!--As proposed in [2], there are different models available. More details about these models will be provided soon. -->
+The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model as explained in the following section. <!--As proposed in [2], there are different models available. More details about these models will be provided soon. -->
 
 ## Score Mapping
-The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [1], we explored the possibility of mapping these scores onto standard MOS ratings using ML algorithms. Several models have been employed and evaluated.
+The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [1], we explored the possibility of mapping these scores onto standard MOS ratings (higher rating means better quality) using ML algorithms. Several models have been employed and evaluated.
 
 In this repository, we provide mapping models based on two ML algorithms: 
 - Deep neural networks with a sequential stack of three dense layers
@@ -130,14 +130,11 @@ Each model was trained using different databases to test its performance under d
 | ITU‐T P. Supplement 23 (P.Sup23) | Interworking with wireless, transmission standards, and channel degradations|  [./models/SequentialStack/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/PSup23.zip) |  [./models/RandomForest/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/PSup23.zip) |
 | Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/SequentialStack/<br>Genspeech_TCDVoIP_PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech_TCDVoIP_PSup23.zip) | [./models/RandomForest/<br>Genspeech_TCDVoIP_PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/Genspeech_TCDVoIP_PSup23.zip) |
 
-As shown in the table, there are two zip files for each set of data. Each zip file contains a trained model with its data scaler. For example, the [./models/SequentialStack/Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech.zip) file contains a sequential stack model that was trained using the Genspeech database to map its raw scores of WARP-Q onto Gensspeech MOS ratings. The mentioned zip file also contains a data scaler corresponding to this data which can be used to scale unseen (test) data before applying the trained model for quality score prediction.
+As shown in the table, there are two zip files for each set of data. Each zip file contains a trained model with its data scaler. For example, the [./models/SequentialStack/Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech.zip) file contains a sequential stack model that was trained using the Genspeech database to map its raw scores of WARP-Q onto Genspeech MOS ratings. The mentioned zip file also contains a data scaler corresponding to this data which can be used to scale unseen (test) data before applying the trained model for quality score prediction. 
 
+To further expand the ability of this mapping technique to cover data with more scenarios of signal distortion and background effects, we provide models that were trained using a combination of the three databases, i.e., Genspeech + TCD-VoIP + P.Sup23. Links of these models are provided in the forth row of the table shown above.    
 
-
-
-
-
-
+To use any of these models, we need to provide its location to the code using --mapping_model argument. 
 
 
 
