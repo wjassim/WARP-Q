@@ -108,7 +108,7 @@ python warpq.py --mode predict_file --org /path/to/original/speech/file.wav --de
 Example: 
  
 ```ruby
-python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest_model/Genspeech.zip
+python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip
 ```
     
 The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. As proposed in [2], there are different models available. More details about these models will be provided soon. 
