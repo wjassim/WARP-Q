@@ -111,12 +111,12 @@ Example:
 python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip
 ```
     
-The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. As proposed in [2], there are different models available. More details about these models will be provided soon. 
+The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. <!--As proposed in [2], there are different models available. More details about these models will be provided soon. -->
 
 ## Score Mapping
 The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [2], we explored the possibility of mapping these scores onto standard MOS ratings using ML algorithms. Several models have been employed and evaluated.
 
-
+In this repository, we provide mapping models based on two ML algorithms: the DNN-based sequential stack and random-forest-based regressor algorithms. Each model was trained using different databases to test its performance under different signal distortions and background effects. 
 
 
 ## Model Design
