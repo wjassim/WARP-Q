@@ -11,6 +11,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 - [News](#news)
 - [Overview](#overview)
 - [Using WARP-Q](#using-warp-q)
+- [Score Mapping](#score-mapping)
 - [Model Design](#model-design)
 - [Citing](#citing)
 
@@ -111,6 +112,10 @@ python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p23
 ```
     
 The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. As proposed in [2], there are different models available. More details about these models will be provided soon. 
+
+## Score Mapping
+The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [2], we explored the possibility of mapping these scores onto standard MOS ratings using ML algorithms. Several models have been employed and evaluated.
+
 
 
 
