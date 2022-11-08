@@ -86,8 +86,8 @@ To run the code, please implement the following steps:
 ### Prediction
 There are two running modes (controlled by --mode argument) available to predict the quality of speech via command line arguments:
 
-- predict_csv: predict quality scores of multi reference and degraded speech files listed in a csv file given by --csv_input argument. The results will be saved to a csv file given by --csv_output argument.
-- predict_file: predict quality score between two speech files, reference file given by --org argument and its degraded given by --deg argument. The results will be printed to the console only.   
+- predict_csv: predict quality scores of multi reference and degraded speech files listed in a csv file given by *--csv_input* argument. The results will be saved to a csv file given by *--csv_output* argument.
+- predict_file: predict quality score between two speech files, reference file given by *--org* argument and its degraded given by *--deg* argument. The results will be printed to the console only.   
 
 To predict the quality of all .wav files listed in a csv table, run WARP-Q with predict_csv mode:
  
@@ -120,7 +120,7 @@ In this repository, we provide mapping models based on two ML algorithms:
 - Deep neural networks with a sequential stack of three dense layers
 - Random-forest-based regressor 
 
-To use any of these models, we need to provide its location to the code using --mapping_model argument. Each model was trained using different databases to test its performance under different signal distortions and background effects. The following table provides details about each model with the employed databases.
+To use any of these models, we need to provide its location to the code using *--mapping_model* argument. Each model was trained using different databases to test its performance under different signal distortions and background effects. The following table provides details about each model with the employed databases.
 
 
 | Database | Purpose | File name of model 1| File name of model 2 |
