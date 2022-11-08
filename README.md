@@ -114,7 +114,7 @@ python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p23
 The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model as explained in the following section. <!--As proposed in [2], there are different models available. More details about these models will be provided soon. -->
 
 ## Score Mapping
-The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [1], we explored the possibility of mapping these scores onto standard MOS ratings (higher rating means better quality) using ML algorithms. Several models have been employed and evaluated.
+The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151), we explored the possibility of mapping these scores onto standard MOS ratings (higher rating means better quality) using ML algorithms. Several models have been employed and evaluated.
 
 In this repository, we provide mapping models based on two ML algorithms: 
 - Deep neural networks with a sequential stack of three dense layers
@@ -134,7 +134,7 @@ As shown in the table, there are two zip files for each set of data. Each zip fi
 
 To further expand the ability of this mapping technique to cover data with more scenarios of signal distortion and background effects, we provide models that were trained using a combination of the three databases, i.e., Genspeech + TCD-VoIP + P.Sup23. Links of these models are provided in the forth row of the table shown above.    
 
-See our paper [1] for more details about speech databases and mapping models used in this repository. 
+See our paper [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) for more details about speech databases and mapping models used in this repository. 
 
 
 
@@ -145,7 +145,7 @@ See our paper [1] for more details about speech databases and mapping models use
 
 ## Model Design
 
-Our previous work [2] introduced the WARP-Q metric evaluating the performance for the chosen design parameters without evaluating or analysing their influence. In our new paper [1], we establish the sensitivity and importance of model components and design choices to the overall metric performance. The purpose of the experiments presented in this Section was to establish a default set of parameters/settings for the proposed model. Furthermore, the experiments were conducted to find default WARP-Q settings that prioritise the Genspeech dataset but work as well as possible for other scenarios. 
+Our previous work [[2]](https://arxiv.org/pdf/2102.10449) introduced the WARP-Q metric evaluating the performance for the chosen design parameters without evaluating or analysing their influence. In our new paper [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151), we establish the sensitivity and importance of model components and design choices to the overall metric performance. The purpose of the experiments presented in this Section was to establish a default set of parameters/settings for the proposed model. Furthermore, the experiments were conducted to find default WARP-Q settings that prioritise the Genspeech dataset but work as well as possible for other scenarios. 
 
 The evaluated parameters are: 
 
