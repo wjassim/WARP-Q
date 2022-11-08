@@ -116,7 +116,17 @@ The provided code computes raw WARP-Q scores. It also maps them onto the standar
 ## Score Mapping
 The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [1], we explored the possibility of mapping these scores onto standard MOS ratings using ML algorithms. Several models have been employed and evaluated.
 
-In this repository, we provide mapping models based on two ML algorithms: the DNN-based sequential stack and random-forest-based regressor algorithms. Each model was trained using different databases to test its performance under different signal distortions and background effects. 
+In this repository, we provide mapping models based on two ML algorithms: the DNN-based sequential stack and random-forest-based regressor algorithms. Each model was trained using different databases to test its performance under different signal distortions and background effects. The following table provides details about each model with the employed databases.
+
+
+| Database | Purpose | File name of model 1| File name of model 2 |
+| --------------- | --------------- | --------------- | ---------------|
+| Genspeech | Assessing quality in low bit rate codecs |  [./models/Sequential_model/Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/Genspeech.zip) | [./models/RandomForest_model/Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/Genspeech.zip) |
+| TCD‐VoIP | Assessing quality in VoIP applications | [./models/Sequential_model/TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/TCDVoIP.zip) | [./models/RandomForest_model/TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/TCDVoIP.zip) |
+| ITU‐T P. Supplement 23 (P.Sup23) | Interworking with wireless, transmission standards, and effect of channel degradations| [./models/Sequential_model/ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/ITUTPSup23.zip) | [./models/RandomForest_model/ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/ITUTPSup23.zip) |
+| Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/Sequential_model/Genspeech_TCDVoIP_ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/Genspeech_TCDVoIP_ITUTPSup23.zip) | [./models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip) |
+
+
 
 
 ## Model Design
