@@ -125,10 +125,10 @@ Each model was trained using different databases to test its performance under d
 
 | Database | Purpose | File name of model 1| File name of model 2 |
 | --------------- | --------------- | --------------- | ---------------|
-| Genspeech | Assessing quality in low bit rate codecs | [./models/Sequential_model/<br>Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/Genspeech.zip)  | [./models/RandomForest_model/<br>Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/Genspeech.zip)  |
+| Genspeech | Assessing quality in low bit rate codecs | [./models/Sequential_model/<br />Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/Genspeech.zip)  | [./models/RandomForest_model/<br>Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/Genspeech.zip)  |
 | TCD‐VoIP | Assessing quality in VoIP applications | [./models/Sequential_model/<br>TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/TCDVoIP.zip) | [./models/RandomForest_model/<br>TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/TCDVoIP.zip) |
 | ITU‐T P. Supplement 23 (P.Sup23) | Interworking with wireless, transmission standards, and channel degradations|  [./models/Sequential_model/<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/ITUTPSup23.zip) |  [./models/RandomForest_model/<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/ITUTPSup23.zip) |
-| Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/Sequential_model/<br>Genspeech_TCDVoIP_ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/Genspeech_TCDVoIP_ITUTPSup23.zip) | [./models/RandomForest_model/<br>Genspeech_TCDVoIP_ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip) |
+| Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/Sequential_model/<br>Genspeech_TCDVoIP_<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/Sequential_model/Genspeech_TCDVoIP_ITUTPSup23.zip) | [./models/RandomForest_model/<br>Genspeech_TCDVoIP_<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip) |
 
 
 
