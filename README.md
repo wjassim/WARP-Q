@@ -120,7 +120,7 @@ In this repository, we provide mapping models based on two ML algorithms:
 - Deep neural networks with a sequential stack of three dense layers
 - Random-forest-based regressor 
 
-Each model was trained using different databases to test its performance under different signal distortions and background effects. The following table provides details about each model with the employed databases.
+To use any of these models, we need to provide its location to the code using --mapping_model argument. Each model was trained using different databases to test its performance under different signal distortions and background effects. The following table provides details about each model with the employed databases.
 
 
 | Database | Purpose | File name of model 1| File name of model 2 |
@@ -134,7 +134,7 @@ As shown in the table, there are two zip files for each set of data. Each zip fi
 
 To further expand the ability of this mapping technique to cover data with more scenarios of signal distortion and background effects, we provide models that were trained using a combination of the three databases, i.e., Genspeech + TCD-VoIP + P.Sup23. Links of these models are provided in the forth row of the table shown above.    
 
-To use any of these models, we need to provide its location to the code using --mapping_model argument. 
+
 
 
 
