@@ -97,7 +97,7 @@ python warpq.py --mode predict_csv --csv_input /path/to/input/csv/file.csv --csv
 
 Example: 
 ```ruby
-python warpq.py --mode predict_csv --csv_input ./audio_samples.csv --csv_output ./results.csv --mapping_model ./models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip
+python warpq.py --mode predict_csv --csv_input ./audio_samples.csv --csv_output ./results.csv --mapping_model ./models/RandomForest/Genspeech_TCDVoIP_PSup23.zip
 ```
 
 To predict the quality of two .wav files, run WARP-Q with predict_file mode:
@@ -108,7 +108,7 @@ python warpq.py --mode predict_file --org /path/to/original/speech/file.wav --de
 Example: 
  
 ```ruby
-python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest_model/Genspeech_TCDVoIP_ITUTPSup23.zip
+python warpq.py --mode predict_file --org ./audio/p239_021.wav --deg ./audio/p239_021_evs.wav --mapping_model ./models/RandomForest/Genspeech_TCDVoIP_PSup23.zip
 ```
     
 The provided code computes raw WARP-Q scores. It also maps them onto the standard MOS rating using a mapping model given by --mapping_model argument. <!--As proposed in [2], there are different models available. More details about these models will be provided soon. -->
@@ -127,8 +127,8 @@ Each model was trained using different databases to test its performance under d
 | --------------- | --------------- | --------------- | ---------------|
 | Genspeech | Assessing quality in low bit rate codecs | [./models/SequentialStack/<br />Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech.zip)  | [./models/RandomForest/<br>Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/Genspeech.zip)  |
 | TCD‐VoIP | Assessing quality in VoIP applications | [./models/SequentialStack/<br>TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/TCDVoIP.zip) | [./models/RandomForest/<br>TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/TCDVoIP.zip) |
-| ITU‐T P. Supplement 23 (P.Sup23) | Interworking with wireless, transmission standards, and channel degradations|  [./models/SequentialStack/<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/ITUTPSup23.zip) |  [./models/RandomForest/<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/ITUTPSup23.zip) |
-| Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/SequentialStack/<br>Genspeech_TCDVoIP_<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech_TCDVoIP_ITUTPSup23.zip) | [./models/RandomForest/<br>Genspeech_TCDVoIP_<br>ITUTPSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/Genspeech_TCDVoIP_ITUTPSup23.zip) |
+| ITU‐T P. Supplement 23 (P.Sup23) | Interworking with wireless, transmission standards, and channel degradations|  [./models/SequentialStack/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/PSup23.zip) |  [./models/RandomForest/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/PSup23.zip) |
+| Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/SequentialStack/<br>Genspeech_TCDVoIP_<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech_TCDVoIP_PSup23.zip) | [./models/RandomForest/<br>Genspeech_TCDVoIP_<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/Genspeech_TCDVoIP_PSup23.zip) |
 
 
 
