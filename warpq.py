@@ -136,7 +136,7 @@ def main(args):
         
     else: #predict_file mode
     
-        print("Compute quality sores...")
+        print("Compute quality scores...")
         warpq_rawScore, warpq_mappedScore = warpq.evaluate(args['org'], args['deg'])
         
         print('\nRaw WARP-Q score (lower rating means better quality): ' + str(warpq_rawScore)) 
