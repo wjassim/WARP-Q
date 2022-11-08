@@ -130,9 +130,7 @@ Each model was trained using different databases to test its performance under d
 | ITU‐T P. Supplement 23 (P.Sup23) | Interworking with wireless, transmission standards, and channel degradations|  [./models/SequentialStack/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/PSup23.zip) |  [./models/RandomForest/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/PSup23.zip) |
 | Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/SequentialStack/<br>Genspeech_TCDVoIP_PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech_TCDVoIP_PSup23.zip) | [./models/RandomForest/<br>Genspeech_TCDVoIP_PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/Genspeech_TCDVoIP_PSup23.zip) |
 
-
-
-
+As shown in the table, there are two zip files for each set of data. Each zip file contains a trained model with its data scaler. For example, the [./models/SequentialStack/Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech.zip) file contains a sequential stack model that was trained using the Genspeech database. It also contains a data scaler corresponding to this data which can be used to scale unseen (test) data before applying the trained model for quality score prediction.
 
 
 
