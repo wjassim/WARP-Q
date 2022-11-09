@@ -130,7 +130,7 @@ In this repository, we provide mapping models based on two ML algorithms:
 - Deep neural networks with a sequential stack of three dense layers
 - Random-forest-based regressor 
 
-The idea here is to give users the opportunity to try different mapping models and select a model that is more suitable for their needs and data. To use any of these models, we need to provide its location to the code using *--mapping_model* argument. 
+The idea here is to give users the opportunity to try different mapping models and select a model that is more suitable for their needs and data. To use any of these models, we need to feed its location to the code using *--mapping_model* argument. 
 
 
 Each model was trained using different databases to test its performance under different signal distortions and background effects. Table 1 below provides details about each model with the employed databases.
