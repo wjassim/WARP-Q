@@ -35,9 +35,13 @@ Speech coding has been shown to achieve good speech quality using either wavefor
 
 The problem is that the existing objective speech quality models (e.g., ViSQOL, POLQA) cannot be used to accurately evaluate the quality of coded speech from generative models as they penalise based on signal differences not apparent in subjective listening test results. Motivated by this observation, we propose the WARP-Q metric, which is robust to low perceptual signal changes introduced by low bit rate neural vocoders. Figure 1 shows illustrates a block diagram of the proposed algorithm.    
 
+<div align="center">
+
 | <img src="Resources/WARP_Q_metric.png" width="700"> | 
 |:--| 
-| Figure 1: High‐level block diagram of the WARP‐Q metric |
+
+Figure 1: High‐level block diagram of the WARP‐Q metric
+</div>
 
 The algorithm of WARP-Q metric consists of four processing stages:  
 
@@ -120,7 +124,10 @@ In this repository, we provide mapping models based on two ML algorithms:
 - Deep neural networks with a sequential stack of three dense layers
 - Random-forest-based regressor 
 
-To use any of these models, we need to provide its location to the code using *--mapping_model* argument. Each model was trained using different databases to test its performance under different signal distortions and background effects. Table 1 below provides details about each model with the employed databases.
+The idea here is to give users the opportunity to try different mapping models and select a model that is more suitable for their needs and data. To use any of these models, we need to provide its location to the code using *--mapping_model* argument. 
+
+
+Each model was trained using different databases to test its performance under different signal distortions and background effects. Table 1 below provides details about each model with the employed databases.
 
 
 <div align="center">
