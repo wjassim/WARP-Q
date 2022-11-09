@@ -120,8 +120,11 @@ In this repository, we provide mapping models based on two ML algorithms:
 - Deep neural networks with a sequential stack of three dense layers
 - Random-forest-based regressor 
 
-To use any of these models, we need to provide its location to the code using *--mapping_model* argument. Each model was trained using different databases to test its performance under different signal distortions and background effects. The following table provides details about each model with the employed databases.
+To use any of these models, we need to provide its location to the code using *--mapping_model* argument. Each model was trained using different databases to test its performance under different signal distortions and background effects. Table 1 below provides details about each model with the employed databases.
 
+
+<div align="center">
+Table 1: file name and location of each mapping model with its corresponding database  
 
 | Database | Purpose | File name of model 1| File name of model 2 |
 | --------------- | --------------- | --------------- | ---------------|
@@ -129,6 +132,9 @@ To use any of these models, we need to provide its location to the code using *-
 | TCD‐VoIP | Assessing quality in VoIP applications | [./models/SequentialStack/<br>TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/TCDVoIP.zip) | [./models/RandomForest/<br>TCDVoIP.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/TCDVoIP.zip) |
 | ITU‐T P. Supplement 23 (P.Sup23) | Interworking with wireless, transmission standards, and channel degradations|  [./models/SequentialStack/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/PSup23.zip) |  [./models/RandomForest/<br>PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/PSup23.zip) |
 | Genspeech + TCD-VoIP + P.Sup23 | Assessing overall quality | [./models/SequentialStack/<br>Genspeech_TCDVoIP_PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech_TCDVoIP_PSup23.zip) | [./models/RandomForest/<br>Genspeech_TCDVoIP_PSup23.zip](https://github.com/wjassim/WARP-Q/blob/main/models/RandomForest/Genspeech_TCDVoIP_PSup23.zip) |
+
+
+</div>
 
 As shown in the table, there are two zip files for each set of data. Each zip file contains a trained model with its data scaler. For example, the [./models/SequentialStack/Genspeech.zip](https://github.com/wjassim/WARP-Q/blob/main/models/SequentialStack/Genspeech.zip) file contains a sequential stack model that was trained using the Genspeech database to map its raw scores of WARP-Q onto Genspeech MOS ratings. The mentioned zip file also contains a data scaler corresponding to this data which can be used to scale unseen (test) data before applying the trained model for quality score prediction. 
 
