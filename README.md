@@ -192,7 +192,7 @@ Figure 3: (a)-(g) Pearson and Spearman correlation coefficients for evaluated fa
 
 ### Best Set of Parameters
 
-Tabel 4 of [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) lists parameter combinations that can provide maximum Pearson and Spearman values for all databases, and therefore, any set of these combinations can be adopted as a default parameter set for the WARP‐Q metric. In [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) and this repository, the following parameter values were chosen as a default set of inputs for the WARP‐Q code because they provide slightly better performance for the Genspeech dataset with maintaining good correlations for other datasets:
+Table 4 of [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) lists parameter combinations that can provide maximum Pearson and Spearman values for all databases, and therefore, any set of these combinations can be adopted as a default parameter set for the WARP‐Q metric. In [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) and this repository, the following parameter values were chosen as a default set of inputs for the WARP‐Q code because they provide slightly better performance for the Genspeech dataset with maintaining good correlations for other datasets:
 
 - *--sr = 16000* 
 - *--fmax = 5000*
