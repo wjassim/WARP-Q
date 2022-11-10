@@ -186,10 +186,25 @@ Figure 3 compares the performance of the evaluated parameters. Please see sectio
 
 <div align="left">
 Figure 3: (a)-(g) Pearson and Spearman correlation coefficients for evaluated factors using the Genspeech, TCD-VoIP, P.Sup23 EXP1, and P.Sup23 EXP3 databases, (h) Pearson correlation coefficient as a function of Spearman correlation coefficient for different parameter values across datasets. Lower correlation coefficients indicate better results.    
-
 </div >  
- 
 </div>
+
+
+### Best Set of Parameters
+
+Tabel 4 of [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) lists parameter combinations that can provide maximum Pearson and Spearman values for all databases, and therefore, any set of these combinations can be adopted as a default parameter set for the WARP‐Q metric. In [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) and this repository, the following parameter values were chosen as a default set of inputs for the WARP‐Q code because they provide slightly better performance for the Genspeech dataset with maintaining good correlations for other datasets:
+
+- *--sr = 16000* 
+- *--fmax = 5000*
+- *--n_mfcc = 13*
+- *--patch_size = 0.4*
+- *--apply_vad = True*
+- *--sigma = [[1,0],[0,3],[1,3]]*
+
+The mapping models provided in [Score Mapping](#score-mapping) section were also trained using these values. Users can try other values and select the ones that can provide better raw scores depending on their needs and data. However, the provided mapping models might give different results as they were trained with our selected paraments shown above.      
+
+
+
 
 ## Citing
 
