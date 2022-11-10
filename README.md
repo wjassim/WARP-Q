@@ -168,14 +168,14 @@ Our previous work [[2]](https://arxiv.org/pdf/2102.10449) introduced the WARP-Q 
 
 The evaluated parameters are: 
 
-  - Sampling frequency of input signals (8 kHz vs 16 kHz)
+  - Sampling frequency of input signals (8 kHz vs 16 kHz). This parameter is controlled by the *--sr* argument
   - Spectral features (MFCC vs Melspectrogram)
-  - Maximum frequency for spectral representation, (<img src="https://render.githubusercontent.com/render/math?math=f_{max}">=4, 5, 6, and 8 kHz)
-  - Number of MFCC coefficients (<img src="https://render.githubusercontent.com/render/math?math=K">=12,13,16, and 24 )
-  - Patch size for evaluation (0.2, 0.4, and 0.6 seconds)
-  - Effect of VAD algorithm on quality scores
-  - Aggregate function for temporal pooling of costs
-  - Effect of DTW step size, <img src="https://render.githubusercontent.com/render/math?math=\Sigma">
+  - Maximum frequency for spectral representation, (<img src="https://render.githubusercontent.com/render/math?math=f_{max}">=4, 5, 6, and 8 kHz). This parameter is controlled by the *--fmax* argument
+  - Number of MFCC coefficients (<img src="https://render.githubusercontent.com/render/math?math=K">=12,13,16, and 24). It is controlled by the *--n_mfcc* argument 
+  - Patch size for evaluation (0.2, 0.4, and 0.6 seconds). It is controlled by the *--patch_size* argument 
+  - Effect of VAD algorithm on quality scores. This parameter is controlled by the *--apply_vad* argument
+  - Aggregate function for temporal pooling of costs (mean vs median)
+  - Effect of DTW step size, <img src="https://render.githubusercontent.com/render/math?math=\Sigma">. It is determined by the *--sigma* argument  
  
 Figure 3 compares the performance of the evaluated parameters. Please see section 4 of our new paper [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) for more details about this figure, score distributions, and summary of best results.  
  
