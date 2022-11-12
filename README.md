@@ -12,7 +12,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 - [Overview](#overview)
 - [Using WARP-Q](#using-warp-q)
 - [Score Mapping](#score-mapping)
-- [Model Design](#warp-q-model-design)
+- [WARP-Q Model Design](#warp-q-model-design)
 - [Citing](#citing)
 
 
