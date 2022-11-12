@@ -158,7 +158,7 @@ To further expand the ability of this mapping technique to cover data with more 
 See our paper [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) for more details about speech databases and mapping models used in this repository. 
 
 ### Performance Evaluation
-To evaluate the performance of the metric or the provided models, it is recommended to run the evaluation based on a per condition approach. First, compute WARP-Q score (raw or mapped) for each speech signal (sample) available in the database and then average them across each condition, codec, or noise type to get the per condition scores. The Pearsonr and Spearmanr correlation coefficients can then be computed for the obtained per condition (averaged) scores.    
+To evaluate the performance of the metric or the provided models, it is recommended to run the evaluation based on a per-condition approach. First, compute WARP-Q score (raw or mapped) for each speech signal (sample) available in the database and then average the computed per-sample scores across each condition, codec, or noise type to get the per-condition scores. The Pearsonr and Spearmanr correlation coefficients can then be computed for the obtained per-condition (averaged) scores.    
 
 
 
