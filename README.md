@@ -203,7 +203,7 @@ Table 4 of [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/si
 
 The mapping models provided in [Score Mapping](#score-mapping) section were also trained using these values. Users can try other values and select the ones that can provide better raw scores depending on their needs and data. However, the provided mapping models might give different results as they were trained with our selected paraments shown above.      
 
-*Note: it is recommended to evaluate the performance of the metric based on a per condition approach. First, compute WARP-Q score (raw or mapped) for each speech signal (sample) available in the database and then average them across each condition, codec, or noise type to get the per condition scores. The Pearsonr and Spearmanr correlation coefficients can then be computed for the obtained per condition (averaged) scores.*    
+*Note: to evaluate the performance of the metric, it is recommended to run the evaluation based on a per condition approach. First, compute WARP-Q score (raw or mapped) for each speech signal (sample) available in the database and then average them across each condition, codec, or noise type to get the per condition scores. The Pearsonr and Spearmanr correlation coefficients can then be computed for the obtained per condition (averaged) scores.*    
 
 
 ## Citing
