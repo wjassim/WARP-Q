@@ -12,7 +12,7 @@ WARP-Q is an objective, full-reference metric for perceived speech quality. It u
 - [Overview](#overview)
 - [Using WARP-Q](#using-warp-q)
 - [Score Mapping](#score-mapping)
-- [Model Design](#model-design)
+- [Model Design](#warp-q-model-design)
 - [Citing](#citing)
 
 
@@ -126,6 +126,8 @@ The provided code computes raw WARP-Q scores. It also maps them onto the standar
 ## Score Mapping
 The original implementation of WARP-Q provides quality scores with negative correlations, i.e., lower rating means better quality, as this metric is designed based on  subsequence alignment costs of speech signals. To make WARP-Q scores compatible with that of other standard quality metrics, in [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151), we explored the possibility of mapping these scores onto standard MOS ratings (higher rating means better quality) using ML algorithms. Several models have been employed and evaluated.
 
+### Models
+
 In this repository, we provide mapping models based on two ML algorithms: 
 - Deep neural networks with a sequential stack of three dense layers
 - Random-forest-based regressor 
@@ -155,14 +157,15 @@ To further expand the ability of this mapping technique to cover data with more 
 
 See our paper [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151) for more details about speech databases and mapping models used in this repository. 
 
+### Performance Evaluation
+To evaluate the performance of the metric or the provided models, it is recommended to run the evaluation based on a per condition approach. First, compute WARP-Q score (raw or mapped) for each speech signal (sample) available in the database and then average them across each condition, codec, or noise type to get the per condition scores. The Pearsonr and Spearmanr correlation coefficients can then be computed for the obtained per condition (averaged) scores.    
 
 
 
 
 
 
-
-## Model Design
+## WARP-Q Model Design
 
 Our previous work [[2]](https://arxiv.org/pdf/2102.10449) introduced the WARP-Q metric evaluating the performance for the chosen design parameters without evaluating or analysing their influence. In our new paper [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151), we establish the sensitivity and importance of model components and design choices to the overall metric performance. The purpose of the experiments presented in this Section was to establish a default set of parameters/settings for the proposed model. Furthermore, the experiments were conducted to find default WARP-Q settings that prioritise the Genspeech dataset but work as well as possible for other scenarios. 
 
@@ -203,7 +206,7 @@ Table 4 of [[1]](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/si
 
 The mapping models provided in [Score Mapping](#score-mapping) section were also trained using these values. Users can try other values and select the ones that can provide better raw scores depending on their needs and data. However, the provided mapping models might give different results as they were trained with our selected paraments shown above.      
 
-*Note: to evaluate the performance of the metric, it is recommended to run the evaluation based on a per condition approach. First, compute WARP-Q score (raw or mapped) for each speech signal (sample) available in the database and then average them across each condition, codec, or noise type to get the per condition scores. The Pearsonr and Spearmanr correlation coefficients can then be computed for the obtained per condition (averaged) scores.*    
+
 
 
 ## Citing
