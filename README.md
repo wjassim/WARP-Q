@@ -96,7 +96,7 @@ To run the code, please implement the following steps:
 ### Prediction
 There are two running modes (controlled by --mode argument) available to predict the quality of speech via command line arguments:
 
-- predict_csv: predict quality scores of multi reference and degraded speech files listed in a csv file given by *--csv_input* argument. The results will be saved to a csv file given by *--csv_output* argument.
+- predict_csv: predict quality scores of multi reference and degraded speech files listed in a csv file given by *--csv_input* argument. See *./audio_samples.csv* as an example of this file. The results will be saved to a csv file given by *--csv_output* argument. 
 - predict_file: predict quality score between two speech files, reference file given by *--org* argument and its degraded given by *--deg* argument. The results will be printed to the console only.   
 
 To predict the quality of all .wav files listed in a csv table, run WARP-Q with predict_csv mode:
