@@ -213,7 +213,7 @@ The mapping models provided in [Score Mapping](#score-mapping) section were also
 
 Please cite our papers if you find this repository useful:
 
-[[1] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “Speech quality assessmentwith WARP‐Q: From similarity to subsequence dynamic time warp cost,” IET Signal Processing, 1– 21 (2022)](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151)
+[[1] W. A. Jassim, J. Skoglund, M. Chinen, and A. Hines, “Speech quality assessmentwith WARP‐Q: From similarity to subsequence dynamic time warp cost,” IET Signal Processing, 16(9), 1050–1070 (2022)](https://ietresearch.onlinelibrary.wiley.com/doi/epdf/10.1049/sil2.12151)
 
     @article{Wissam_IET_Signal_Process2022,
       author = {Jassim, Wissam A. and Skoglund, Jan and Chinen, Michael and Hines, Andrew},
