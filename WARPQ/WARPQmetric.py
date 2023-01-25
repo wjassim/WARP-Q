@@ -124,7 +124,7 @@ class warpqMetric(object):
             if ref_path[-4:] == '.SRC': #For ITUT database if applicable
                 speech_Ref, sr_Ref  = sf.read(ref_path, format='RAW', channels=1, samplerate=16000,
                                subtype='PCM_16', endian='LITTLE')
-                if sr_Ref != self.args.sr:
+                if sr_Ref != self.args['sr']:
                     speech_Ref = librosa.resample(speech_Ref, sr_Ref, self.args['sr'])
             
         # 2) Load coded audio
@@ -134,7 +134,7 @@ class warpqMetric(object):
             if test_path[-4:] == '.OUT': #For ITUT database if applicable
                 speech_Coded, sr_Coded  = sf.read(test_path, format='RAW', channels=1, samplerate=16000,
                                subtype='PCM_16', endian='LITTLE')
-                if sr_Coded != self.args.sr:
+                if sr_Coded != self.args['sr']:
                     speech_Coded = librosa.resample(speech_Coded, sr_Coded, self.args['sr'])
         
                
