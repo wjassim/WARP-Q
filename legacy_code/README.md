@@ -1,8 +1,10 @@
 
 
 # Quality Prediction For Generative Neural Speech Codecs (WARP-Q)
-This code is to run the WARP-Q speech quality metric.
-https://github.com/WissamJassim/WARP-Q.git
+
+***Note: This folder contains the initial version of the WARP-Q code, which has been archived. You can use these versions if needed. A new API has been published and is available on the [main page of the repository](https://github.com/wjassim/WARP-Q).***
+
+---
 
 WARP-Q is an objective, full-reference metric for perceived speech quality. It uses a subsequence dynamic time warping (SDTW) algorithm as a similarity between a reference (original) and a test (degraded) speech signal to produce a raw quality score. It is designed to predict quality scores for speech signals processed by low bit rate speech coders. 
 
@@ -88,9 +90,9 @@ To run the code, please implement the following steps:
     conda create --name warpq python=3.9
     conda activate warpq
     ```
-3. Change working directory to the path of warpq repo and then install the dependencies:
+3. Navigate to the path of the legacy folder and then install the dependencies:
     ```ruby
-    cd path/of/clonned/warpq/repo
+    cd path/of/clonned/warpq/legacy_code
     pip install -r requirements.txt
     ```
 
