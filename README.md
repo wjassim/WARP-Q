@@ -326,7 +326,7 @@ The `plot_warpq_scores` function generates a scatter plot of MOS versus WARP-Q s
 - **`df`**: A `pandas` DataFrame or path to a CSV file containing MOS and WARP-Q scores.
 - **`mos_col`**: The column name for the `MOS`.
 - **`warpq_col`**: The column name for WARP-Q scores. Default is `"Raw WARP-Q Score"`.
-- **`hue_col`**: Optional. A column name used to color the points by category (e.g., `cndition` or `degradation_type`).
+- **`hue_col`**: Optional. A column name used to color the points by category (e.g., `condition` or `degradation_type`).
 - **`style_col`**: Optional. A column name to differentiate marker styles in the scatter plot.
 - **`save_path`**: Optional. The path to save the plot as a `.png` file. The `.png` extension will be added if not provided.
 
@@ -344,7 +344,7 @@ warp_plot = model.plot_warpq_scores(
     save_path="mos_vs_warpq_individual.png"
 )
 ```
-This example generates a scatter plot comparing MOS and WARP-Q scores for each individual audio file. The plot is saved as mos_vs_warpq_individual.png.
+This example generates a scatter plot comparing MOS and WARP-Q scores for each individual audio file. The plot is saved as `mos_vs_warpq_individual.png`.
 
 ### 7. Plotting Scores Grouped by Condition or Degradation Type
 In addition to plotting scores for individual files, it is often insightful to group the data by specific conditions such as degradation type, experiment condition, database or codec. Grouping scores can help you better understand how different types of degradation impact audio quality and assess the overall performance of a codec or processing technique across multiple conditions.
@@ -474,11 +474,6 @@ The plots are based on the `Genspeech` and `TCD-VoIP` databases described in the
   <img src="https://github.com/wjassim/WARP-Q/blob/main/Resources/images/TCDVoIP_per_codec.png?raw=True" alt="Per Codec Before Normalization" width="45%">
   <img src="https://github.com/wjassim/WARP-Q/blob/main/Resources/images/TCDVoIP_normalized_per_codec.png?raw=True" alt="Per Codec After Normalization" width="45%">
 </p>
-
-
-
-
-
 
 
 ## Citing
