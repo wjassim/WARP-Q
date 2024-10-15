@@ -69,9 +69,9 @@ The algorithm of WARP-Q metric consists of four processing stages:
 
   <br>
 <div align="center">
-  <img src="Resources/images/subSeqDTW.png" width="800" alt="Alignment cost matrix and optimal path">
+  <img src="Resources/images/subSeqDTW.png" width="1000" alt="Alignment cost matrix and optimal path">
 </div>
-<div style="max-width: 800px; text-align: left; margin: 0 auto;">
+<div style="max-width: 1000px; text-align: left; margin: 0 auto;">
   <em>Figure 2: (a) Waveforms of a reference signal and its WaveNet-coded version at 6 kb/s (post-VAD), 
   (b) normalised MFCC matrices of the two signals, (c) SDTW-based accumulated alignment cost matrix 
   <code>D<sub>(X,Y)</sub></code> and optimal path <code>P<sup>*</sup></code> between the reference 
@@ -160,30 +160,30 @@ This allows you to set custom values for parameters such as the sampling rate (`
 The `evaluate()` function from the `warpqMetric` class computes the WARP-Q score between two input speech signals, which can either be audio file paths or audio arrays. This function provides detailed alignment information, including the degree of similarity between the reference and degraded audio using the WARP-Q metric.
 
 #### Inputs:
-- **`ref_audio`**: Path to the reference audio file or a NumPy array of the reference audio signal.
-- **`deg_audio`**: Path to the degraded audio file or a NumPy array of the degraded audio signal.
-- **`arr_sr`**: Sampling rate, required only if providing audio arrays.
-- **`save_csv_path`**: Path to save the detailed results in a CSV file. If `None`, results are not saved. If a valid path is provided, the results will be saved in CSV format, with columns including reference and degraded audio descriptions, WARP-Q scores, alignment costs, and timing information for each patch. If the file already exists, new results will be appended without the header.
-- **`verbose`**: If `True`, outputs messages about the processing.
+- **`ref_audio`** (`str` or `np.ndarray`): Path to the reference audio file or a NumPy array of the reference audio signal.
+- **`deg_audio`** (`str` or `np.ndarray`): Path to the degraded audio file or a NumPy array of the degraded audio signal.
+- **`arr_sr`** (`int`, optional): Sampling rate, required only if providing audio arrays.
+- **`save_csv_path`** (`str`, optional): Path to save the detailed results in a CSV file. If `None`, results are not saved. If a valid path is provided, the results will be saved in CSV format, with columns including reference and degraded audio descriptions, WARP-Q scores, alignment costs, and timing information for each patch. If the file already exists, new results will be appended without the header.
+- **`verbose`** (`bool`, optional): If `True`, outputs messages about the processing.
 
 #### Outputs:
-The `evaluate()` function returns a dictionary containing the WARP-Q results and detailed alignment information, including:
+The `evaluate()` function returns a dictionary (`dict`) containing the WARP-Q results and detailed alignment information, including:
 
-  - **`raw_warpq_score`**: The computed WARP-Q score between the reference and degraded audio.
+  - **`raw_warpq_score`** (`float`): The computed WARP-Q score between the reference and degraded audio.
 
-  - **`normalized_warpq_score`**: The normalized WARP-Q score between `0` and `1`, where `1` indicates the best audio quality. Please see the normalization section below for more details.
+  - **`normalized_warpq_score`** (`float`): The normalized WARP-Q score between `0` and `1`, where `1` indicates the best audio quality. Please see the normalization section below for more details.
 
-  - **`total_patch_count`**: The total number of patches generated from the degraded signal's MFCC, representing the number of segments in the degraded signal after applying the sliding window.
+  - **`total_patch_count`** (`int`): The total number of patches generated from the degraded signal's MFCC, representing the number of segments in the degraded signal after applying the sliding window.
 
-  - **`alignment_costs`**: A list of DTW alignment costs for each degraded MFCC patch, representing how well each patch matches its aligned subsequence in the reference MFCC. Length is equal to `total_patch_count`.
+  - **`alignment_costs`** (`list`): A list of DTW alignment costs for each degraded MFCC patch, representing how well each patch matches its aligned subsequence in the reference MFCC. Length is equal to `total_patch_count`.
 
-  - **`aligned_ref_time_ranges`**: List of (start_time, end_time) tuples containing the start and end time stamps (in seconds) for the best matching subsequences in the reference MFCC, as aligned to each patch in the degraded signal using DTW. Length is equal to `total_patch_count`.
+  - **`aligned_ref_time_ranges`** (`list`): List of (start_time, end_time) tuples containing the start and end time stamps (in seconds) for the best matching subsequences in the reference MFCC, as aligned to each patch in the degraded signal using DTW. Length is equal to `total_patch_count`.
 
-  - **`aligned_ref_frame_indices`**: List of (`a_ast`, `b_ast`) tuples containing the start and end frame indices for the best matching subsequences in the reference MFCC, corresponding to the aligned subsequences. Length is equal to `total_patch_count`.
+  - **`aligned_ref_frame_indices`** (`list`): List of (`a_ast`, `b_ast`) tuples containing the start and end frame indices for the best matching subsequences in the reference MFCC, corresponding to the aligned subsequences. Length is equal to `total_patch_count`.
 
-  - **`deg_patch_time_ranges`**: List of (start_time, end_time) tuples containing the start and end time stamps (in seconds) for each patch in the degraded signal's MFCC, generated using a sliding window approach. Length is equal to `total_patch_count`.
+  - **`deg_patch_time_ranges`** (`list`): List of (start_time, end_time) tuples containing the start and end time stamps (in seconds) for each patch in the degraded signal's MFCC, generated using a sliding window approach. Length is equal to `total_patch_count`.
 
-  - **`deg_patch_frame_indices`**: List of (start_frame, end_frame) tuples containing the start and end frame indices for each patch in the degraded signal's MFCC, corresponding to the patches created by the sliding window process. Length is equal to `total_patch_count`.
+  - **`deg_patch_frame_indices`** (`list`): List of (start_frame, end_frame) tuples containing the start and end frame indices for each patch in the degraded signal's MFCC, corresponding to the patches created by the sliding window process. Length is equal to `total_patch_count`.
 
 
 #### Example Usage:
@@ -241,12 +241,12 @@ The `evaluate_from_csv` from the `warpqMetric` class allows you to compute the W
 
 The `evaluate_from_csv` function takes the following inputs:
 
-- `input_csv` (str): Path to a CSV file with specified reference and degraded wave columns.
-- `ref_wave_col` (str): Name of the reference wave column. Default is `'ref_wave'`.
-- `deg_wave_col` (str): Name of the degraded wave column. Default is `'deg_wave'`.
-- `raw_score_col` (str): Column name where raw scores will be saved. Default is `'Raw WARP-Q Score'`.
-- `output_csv` (str): Path to save results. If `None`, results are not saved.
-- `save_details` (bool): If `True`, save detailed results (alignment costs, times) in the same DataFrame.
+- `input_csv` (`str`): Path to a CSV file with specified reference and degraded wave columns.
+- `ref_wave_col` (`str`): Name of the reference wave column. Default is `'ref_wave'`.
+- `deg_wave_col` (`str`): Name of the degraded wave column. Default is `'deg_wave'`.
+- `raw_score_col` (`str`): Column name where raw scores will be saved. Default is `'Raw WARP-Q Score'`.
+- `output_csv` (`str`): Path to save results. If `None`, results are not saved.
+- `save_details` (`bool`): If `True`, save detailed results (alignment costs, times) in the same DataFrame.
 
 and it returns the following:
 - `pd.DataFrame`: DataFrame with computed WARP-Q scores and detailed results if requested.
