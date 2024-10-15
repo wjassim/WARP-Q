@@ -241,28 +241,28 @@ The `evaluate_from_csv` from the `warpqMetric` class allows you to compute the W
 
 The `evaluate_from_csv` function takes the following inputs:
 
-- `input_csv` (`str`): Path to a CSV file with specified reference and degraded wave columns.
-- `ref_wave_col` (`str`): Name of the reference wave column. Default is `'ref_wave'`.
-- `deg_wave_col` (`str`): Name of the degraded wave column. Default is `'deg_wave'`.
-- `raw_score_col` (`str`): Column name where raw scores will be saved. Default is `'Raw WARP-Q Score'`.
-- `output_csv` (`str`): Path to save results. If `None`, results are not saved.
-- `save_details` (`bool`): If `True`, save detailed results (alignment costs, times) in the same DataFrame.
+- **`input_csv`** (`str`): Path to a CSV file with specified reference and degraded wave columns.
+- **`ref_wave_col`** (`str`): Name of the reference wave column. Default is `'ref_wave'`.
+- **`deg_wave_col`** (`str`): Name of the degraded wave column. Default is `'deg_wave'`.
+- **`raw_score_col`** (`str`): Column name where raw scores will be saved. Default is `'Raw WARP-Q Score'`.
+- **`output_csv`** (`str`): Path to save results. If `None`, results are not saved.
+- **`save_details`** (`bool`): If `True`, save detailed results (alignment costs, times) in the same DataFrame.
 
 and it returns the following:
 - `pd.DataFrame`: DataFrame with computed WARP-Q scores and detailed results if requested.
 
 - Additional detailed results (saved when `save_details=True`) include:
-  - `total_patch_count` (`int`): The total number of patches in the degraded signal.
-  - `alignment_costs` (`list`): The alignment costs for each patch between the degraded and reference signals. 
-  - `deg_patch_time_ranges` (`list`): List of tuples for (start, end) times in seconds of each patch in the degraded signal. 
-  - `aligned_ref_time_ranges` (`list`): List of tupes for (start, end) times in seconds of the aligned segments in the reference signal. 
+  - **`total_patch_count`** (`int`): The total number of patches in the degraded signal.
+  - **`alignment_costs`** (`list`): The alignment costs for each patch between the degraded and reference signals. 
+  - **`deg_patch_time_ranges`** (`list`): List of tuples for (start, end) times in seconds of each patch in the degraded signal. 
+  - **`aligned_ref_time_ranges`** (`list`): List of tupes for (start, end) times in seconds of the aligned segments in the reference signal. 
 
 
 #### Preparing the Input CSV File: 
 To use this function, first, you need to prepare a CSV file with columns specifying the reference and degraded audio files. The CSV file must contain at least the following two columns:
 
-- `ref_wave`: Column containing paths to the reference audio files.
-- `deg_wave`: Column containing paths to the degraded audio files.
+- **`ref_wave`**: Column containing paths to the reference audio files.
+- **`deg_wave`**: Column containing paths to the degraded audio files.
 
 You may optionally include additional columns, such as Mean Opinion Score (MOS), degradation type, condition (experiment), and database for each file, if such information is accessible. These columns can facilitate further analysis, such as plotting WARP-Q scores against MOS or evaluating performance based on degradation types or experimental conditions.
 
@@ -323,12 +323,12 @@ print(df_loaded)
 The `plot_warpq_scores` function generates a scatter plot of MOS versus WARP-Q scores and calculates the Pearson and Spearman correlation coefficients. The function supports color encoding and marker styling based on categories such as `condition` or `degradation_type` to enhance the plot's clarity.
 
 #### Parameters:
-- `df`: A `pandas` DataFrame or path to a CSV file containing MOS and WARP-Q scores.
-- `mos_col`: The column name for the `MOS`.
-- `warpq_col`: The column name for WARP-Q scores. Default is `"Raw WARP-Q Score"`.
-- `hue_col`: Optional. A column name used to color the points by category (e.g., `cndition` or `degradation_type`).
-- `style_col`: Optional. A column name to differentiate marker styles in the scatter plot.
-- `save_path`: Optional. The path to save the plot as a `.png` file. The `.png` extension will be added if not provided.
+- **`df`**: A `pandas` DataFrame or path to a CSV file containing MOS and WARP-Q scores.
+- **`mos_col`**: The column name for the `MOS`.
+- **`warpq_col`**: The column name for WARP-Q scores. Default is `"Raw WARP-Q Score"`.
+- **`hue_col`**: Optional. A column name used to color the points by category (e.g., `cndition` or `degradation_type`).
+- **`style_col`**: Optional. A column name to differentiate marker styles in the scatter plot.
+- **`save_path`**: Optional. The path to save the plot as a `.png` file. The `.png` extension will be added if not provided.
 
 By default, the function plots MOS and WARP-Q scores for each audio file in the dataset, allowing you to directly assess the relationship between subjective and objective quality metrics.
 
@@ -352,13 +352,12 @@ In addition to plotting scores for individual files, it is often insightful to g
 To achieve this, you can first group the data using the `group_dataframe_by_columns` function, and then plot the aggregated results.
 
 #### Parameters:
-- `data`: A `pandas` DataFrame to group. If not provided, data can be loaded from a CSV via `csv_path`.
-- `csv_path`: Path to a CSV file to load data from if no DataFrame is provided.
-- `group_cols`: A list of columns to group by (e.g., `["Degradation Type", "Condition"]`).
-- `agg_cols`: A list of columns to apply the aggregation function to (e.g., `["MOS", "Raw WARP-Q Score"]`).
-- `agg_func`: The aggregation function to apply. Default is `"mean"`, but you can also apply
-        other functions like `"sum`", `"min`", `"max`", etc..
-- `output_csv`: Optional. Path to save the grouped data as a CSV file.
+- **`data`**: A `pandas` DataFrame to group. If not provided, data can be loaded from a CSV via `csv_path`.
+- **`csv_path`**: Path to a CSV file to load data from if no DataFrame is provided.
+- **`group_cols`**: A list of columns to group by (e.g., `["Degradation Type", "Condition"]`).
+- **`agg_cols`**: A list of columns to apply the aggregation function to (e.g., `["MOS", "Raw WARP-Q Score"]`).
+- **`agg_func`**: The aggregation function to apply. Default is `"mean"`, but you can also apply other functions like `"sum`", `"min`", `"max`", etc..
+- **`output_csv`**: Optional. Path to save the grouped data as a CSV file.
 
 #### Example Usage (Grouping Data by Degradation Type and Plotting):
 
@@ -386,10 +385,10 @@ warp_plot = model.plot_warpq_scores(
 ```
 
 ### 8. WARP-Q Score Normalization
-The WARP-Q metric provides raw scores that exhibit a **negative correlation** with quality. This means that **lower values (closer to zero) indicate higher quality, while higher scores reflect lower quality**. This behavior arises because WARP-Q is based on the **alignment cost** between the reference and degraded speech signals.
+The WARP-Q metric provides raw scores that exhibit a **negative correlation** with quality. This means that **lower values (closer to zero) indicate higher quality, while higher scores reflect lower quality**. This behavior arises because WARP-Q is based on the alignment cost between the reference and degraded speech signals.
 
 #### Why Alignment Cost Gives Negative Quality Score Correlation?:
-The alignment cost is calculated using **Subsequence Dynamic Time Warping (SDTW)**, which measures how well the degraded speech aligns with the reference speech over time. When the alignment cost is **low**, it indicates that the codec or degradation type has **preserved the speech signal well**, resulting in higher quality. Conversely, a **high alignment cost** suggests more distortion, meaning the signal quality has deteriorated.
+The alignment cost is calculated using Subsequence Dynamic Time Warping (SDTW), which measures how well the degraded speech aligns with the reference speech over time. When the alignment cost is low, it indicates that the codec or degradation type has preserved the speech signal well, resulting in higher quality. Conversely, a high alignment cost suggests more distortion, meaning the signal quality has deteriorated.
 
 #### Normalization Process:
 To present WARP-Q scores with **positive correlation** (where higher scores indicate better quality), we normalize the raw WARP-Q scores to a **0 to 1 scale**. The normalization is performed using the following equation:
@@ -397,21 +396,22 @@ To present WARP-Q scores with **positive correlation** (where higher scores indi
 $$
 \text{Normalized WARP-Q Score} = 1 - \left(\frac{\text{Raw WARP-Q Score}}{\text{Max WARP-Q Score}}\right),
 $$
-where:
-- **Raw WARP-Q Score** is the score produced by the WARP-Q metric (based on subsequence DTW alignment cost).
-- **Max WARP-Q Score** is a predefined maximum score used for normalization.
 
-The **Max WARP-Q Score** is set to **3.5** based on evaluations across four different databases that are used in our papers. This value ensures that the normalized scores range from **0 to 1** with **positive correlation** to quality.
+where:
+- `Raw WARP-Q Score` is the score produced by the WARP-Q metric (based on subsequence DTW alignment cost).
+- `Max WARP-Q Score` is a predefined maximum score used for normalization.
+
+The `Max WARP-Q Score` is set to **`3.5`** based on evaluations across four different databases that are used in our papers. This value ensures that the normalized scores range from `0` to `1` with positive correlation to quality.
 
 #### Handling Scores That Exceed the Max Score:
 
-If the **Max WARP-Q Score** is set too low, the normalization term $\left(\frac{\text{Raw WARP-Q Score}}{\text{Max WARP-Q Score}}\right)$ can result in values greater than 1. In such cases, the normalized score $\left(1 - \left(\frac{\text{Raw WARP-Q Score}}{\text{Max WARP-Q Score}}\right)\right)$ becomes less than zero. To prevent this, the WARP-Q implementation clips all negative scores to 0.
+If the `Max WARP-Q Score` is set too low, the normalization term $\left(\frac{\text{Raw WARP-Q Score}}{\text{Max WARP-Q Score}}\right)$ can result in values greater than `1`. In such cases, the normalized score $\left(1 - \left(\frac{\text{Raw WARP-Q Score}}{\text{Max WARP-Q Score}}\right)\right)$ becomes less than zero. To prevent this, the WARP-Q implementation clips all negative scores to `0`.
 
-Therefore, if you notice **many scores are zero**, this likely indicates that the **Max WARP-Q Score** is too low for your dataset or codec, and you may need to adjust it.
+Therefore, if you notice **many scores are zero**, this likely indicates that the `Max WARP-Q Score` is too low for your dataset or codec, and you may need to adjust it.
 
 #### Adjusting the Max Score:
 
-You can adjust the **Max WARP-Q Score** to better fit your specific use case or database. To do this, pass the desired maximum value when creating an instance of the WARP-Q class:
+You can adjust the `Max WARP-Q Score` to better fit your specific use case or database. To do this, pass the desired maximum value when creating an instance of the WARP-Q class:
 
 ```python
 model = warpqMetric(max_score=your_desired_max_score)
@@ -420,7 +420,7 @@ model = warpqMetric(max_score=your_desired_max_score)
 This allows you to fine-tune the normalization process according to the characteristics of your dataset and codec performance, ensuring better alignment with subjective quality assessments.
 
 #### Normalizing to a 1-to-5 Scale: 
-It is possible to normalize the raw WARP-Q score to align with the Mean Opinion Score (MOS), which typically ranges from 1 to 5. The normalization for this would be:
+It is possible to normalize the raw WARP-Q score to align with the Mean Opinion Score (MOS), which typically ranges from `1` to `5`. The normalization for this would be:
 
 
 $$
@@ -429,10 +429,10 @@ $$
 
 
 where:
-- A score of 1 indicates low quality,
-- A score of 5 indicates high quality.
+- A score of `1` indicates low quality,
+- A score of `5` indicates high quality.
 
-In the current implementation, we are scaling the scores to the 0 to 1 range to keep things simple. A more robust mapping model based on machine learning algorithms is under development. It will be released soon and will provide better correlations with the subjective quality scores. Such a model can handle various distortion and coding scenarios more effectively.
+In the current implementation, we are scaling the scores to the `0` to `1` range to keep things simple. A more robust mapping model based on machine learning algorithms is under development. It will be released soon and will provide better correlations with the subjective quality scores. Such a model can handle various distortion and coding scenarios more effectively.
 
 
 ## 9. Plot Examples: MOS vs. WARP-Q Scores
